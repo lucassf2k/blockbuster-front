@@ -20,6 +20,10 @@ html, body {
   color: var(--gray1);
 }
 
+input, button, textarea {
+  font-family: 'Inter', sans-serif;
+}
+
 @media(max-width: 700px) {
   #root {
     display: flex;
