@@ -24,6 +24,13 @@ export function Login() {
 				<button type="button">
           Entrar
 				</button>
+
+				<p className="section_form-footer">
+          Não possui conta?
+					<a href="#">
+						<strong>Clique aqui!</strong>
+					</a>
+				</p>
 			</main>
 		</section>
 	);

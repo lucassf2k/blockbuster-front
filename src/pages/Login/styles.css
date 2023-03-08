@@ -71,6 +71,21 @@
   margin-top: 24px;
 }
 
+.section_form-footer {
+  font-size: 14px;
+  margin-top: 8px;
+  color: var(--gray2);
+}
+
+.section_form-footer a {
+  text-decoration: none;
+}
+
+.section_form-footer strong {
+  color: var(--gray1);
+  margin-left: 4px;
+}
+
 button {
   cursor: pointer;
 }
@@ -80,7 +95,7 @@ button:hover {
   filter: brightness(0.9);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .section_login {
     flex-direction: column;
     min-width: 480px;
@@ -88,5 +103,20 @@ button:hover {
 
   .section_login--logo {
     margin-right: 0;
+    margin-bottom: 24px;
+  }
+
+  .section_login--logo img {
+    width: 280px
+  }
+}
+
+@media (max-width: 580px) {
+  .section_login--logo {
+    display: none;
+  }
+
+  .section_form {
+    margin-top: 36px;
   }
 }
