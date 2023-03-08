@@ -10,7 +10,7 @@
   width: 112px;
   height: 50px;
   background: transparent;
-  border: 1px solid var(--gray1);
+  border: 1px solid var(--gray2);
   color: var(--gray1);
   font-weight: 700;
   border-radius: 8px;
@@ -24,6 +24,38 @@
   font-weight: 700;
   border-radius: 8px;
   margin-left: 16px;
+}
+
+.section_main {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: calc(100vh - 180px);
+  display: flex;
+  align-items: center;
+}
+
+.section_main .section_main--presentation h1 {
+  font-size: 48px;
+}
+
+.section_main .section_main--screens {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.section_main--screens div img {
+  width: 56px;
+  height: 56px;
+}
+
+.section_main--screens div img + img {
+  margin-left: 8px;
+}
+
+.section_main .section_main--screens p {
+  color: var(--gray2);
+  margin-left: 24px;
 }
 
 @media (max-width: 700px) {
