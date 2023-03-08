@@ -1,0 +1,33 @@
+.header_welcome {
+  max-width: 1200px;
+  margin: 32px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_welcome .button_secundary {
+  width: 112px;
+  height: 50px;
+  background: transparent;
+  border: 1px solid var(--gray1);
+  color: var(--gray1);
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.header_welcome .button_primary {
+  width: 112px;
+  height: 50px;
+  background: var(--primary);
+  color: var(--gray1);
+  font-weight: 700;
+  border-radius: 8px;
+  margin-left: 16px;
+}
+
+@media (max-width: 700px) {
+  .header_welcome {
+    flex-direction: column;
+  }
+}
