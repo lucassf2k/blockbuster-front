@@ -27,11 +27,16 @@
 }
 
 .section_main {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  height: calc(100vh - 180px);
+  height: 600px;
   display: flex;
-  align-items: center;
+}
+
+.section_main .section_main--presentation {
+  padding-left: 156px;
+  align-self: center;
+  margin-right: 84px;
 }
 
 .section_main .section_main--presentation h1 {
@@ -56,6 +61,61 @@
 .section_main .section_main--screens p {
   color: var(--gray2);
   margin-left: 24px;
+}
+
+.section_main--slides {
+  max-width: 1100px;
+  height: 540px;
+}
+
+.section_main--carts {
+  max-width: 640px;
+  width: 100%;
+  height: 100%;
+}
+
+.section_main--cart {
+  position: relative;
+  width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  background: url('../../assets/house-of-the-dragon.png') no-repeat;
+  background-size: contain;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.section_main--cart p {
+  max-width: 400px;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.section_main--cart p:first-child {
+  margin-bottom: 8px;
+}
+
+.section_main--cart h3 {
+  margin-bottom: 28px;
+  z-index: 2;
+}
+
+.section_main--cart p {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.section_main--cart::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #211B29 28.13%, rgba(33, 27, 41, 0) 100%);
+  border-radius: 8px;
+  transform: rotate(-180deg);
 }
 
 @media (max-width: 700px) {

@@ -44,7 +44,15 @@ export function Welcome() {
 				</section>
 
 				<section className="section_main--slides">
-
+					<div className="section_main--carts">
+						<div className="section_main--cart">
+							<p>TEMPORADA 1 | 10 EPISÓDIOS</p>
+							<h3>House of the Dragon</h3>
+							<p>
+                Os apoiadores de Aegon Targaryen entram em conflito com os adeptos de sua meia-irmã, Rhaenyra, pelo trono de Viserys I, seu falecido pai, iniciando uma guerra civil cerca de 200 anos antes dos eventos retratados em "Game of Thrones".
+							</p>
+						</div>
+					</div>
 				</section>
 			</main>
 		</>
