@@ -49,7 +49,7 @@ export function Welcome() {
 							<p>TEMPORADA 1 | 10 EPISÓDIOS</p>
 							<h3>The Last of Us</h3>
 							<p>
-                Os apoiadores de Aegon Targaryen entram em conflito com os adeptos de sua meia-irmã, Rhaenyra, pelo trono de Viserys I, seu falecido pai, iniciando uma guerra civil cerca de 200 anos antes dos eventos retratados em "Game of Thrones".
+                The Last of Us é uma série distópica da HBO baseada na franquia de jogos de videogame de mesmo nome criada por Neil Druckmann. O drama narra um futuro pandêmico que foi devastador para humanidade, deixando os seres humanos à beira da extinção. O vírus transforma pessoas em canibais e se espalha rapidamente com uma simples mordida.
 							</p>
 						</div>
 
