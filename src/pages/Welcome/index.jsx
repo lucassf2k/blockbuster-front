@@ -45,13 +45,30 @@ export function Welcome() {
 
 				<section className="section_main--slides">
 					<div className="section_main--carts">
-						<div className="section_main--cart">
+						<div className="section_main--cart cart-1">
+							<p>TEMPORADA 1 | 10 EPISÓDIOS</p>
+							<h3>The Last of Us</h3>
+							<p>
+                Os apoiadores de Aegon Targaryen entram em conflito com os adeptos de sua meia-irmã, Rhaenyra, pelo trono de Viserys I, seu falecido pai, iniciando uma guerra civil cerca de 200 anos antes dos eventos retratados em "Game of Thrones".
+							</p>
+						</div>
+
+						<div className="section_main--cart cart-2">
 							<p>TEMPORADA 1 | 10 EPISÓDIOS</p>
 							<h3>House of the Dragon</h3>
 							<p>
                 Os apoiadores de Aegon Targaryen entram em conflito com os adeptos de sua meia-irmã, Rhaenyra, pelo trono de Viserys I, seu falecido pai, iniciando uma guerra civil cerca de 200 anos antes dos eventos retratados em "Game of Thrones".
 							</p>
 						</div>
+
+						<div className="section_main--cart cart-3">
+							<p></p>
+							<h3>Avatar</h3>
+							<p>
+                Os apoiadores de Aegon Targaryen entram em conflito com os adeptos de sua meia-irmã, Rhaenyra, pelo trono de Viserys I, seu falecido pai, iniciando uma guerra civil cerca de 200 anos antes dos eventos retratados em "Game of Thrones".
+							</p>
+						</div>
+
 					</div>
 				</section>
 			</main>
