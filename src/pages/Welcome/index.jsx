@@ -25,8 +25,8 @@ export function Welcome() {
 			<main className="section_main">
 				<section className="section_main--presentation">
 					<h1>
-            Filmes, séries e muito <br />
-            mais. Tudo em um só <br />
+            Filmes, séries e muito
+            mais. Tudo em um só
             lugar!
 					</h1>
 

@@ -42,6 +42,7 @@
 
 .section_main .section_main--presentation h1 {
   font-size: 48px;
+  max-width: 400px;
 }
 
 .section_main .section_main--screens {
@@ -65,13 +66,13 @@
 }
 
 .section_main--slides {
-  max-width: 1100px;
+  max-width: 900px;
   height: 540px;
   overflow: hidden;
 }
 
 .section_main--carts {
-  width: 100%;
+  max-width: 900px;
   height: 100%;
   display: flex;
   align-items: center;
