@@ -7,7 +7,7 @@
 }
 
 .section_login--logo {
-  margin-right: 280px;
+  margin-right: 220px;
 }
 
 .section_login--logo img {
@@ -16,7 +16,8 @@
 }
 
 .section_form {
-  min-width: 512px;
+  max-width: 512px;
+  width: 90%;
 }
 
 .section_form h3 {
