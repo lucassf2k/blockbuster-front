@@ -1,4 +1,4 @@
-import logoImg from '../../assets/logo.svg';
+import { ASSETS } from '../../assets';
 
 import './styles.css';
 
@@ -6,7 +6,7 @@ export function Login() {
 	return (
 		<section className="section_login">
 			<h2 className="section_login--logo">
-				<img src={logoImg} alt="Logo escriot Block Buster" />
+				<img src={ASSETS.logo} alt="Logo escriot Block Buster" />
 			</h2>
 
 			<main className="section_form">
