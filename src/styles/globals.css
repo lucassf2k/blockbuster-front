@@ -14,7 +14,7 @@
   -webkit-box-sizing: border-box;
 }
 
-html, body {
+body, #root {
   font-family: 'Inter', sans-serif;
   background: var(--black1);
   color: var(--gray1);
@@ -22,6 +22,16 @@ html, body {
 
 input, button, textarea {
   font-family: 'Inter', sans-serif;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+button:hover {
+  transition: 0.2s ease-in;
+  filter: brightness(0.9);
 }
 
 @media(max-width: 700px) {
