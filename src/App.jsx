@@ -1,5 +1,5 @@
-import { Welcome } from './pages/Welcome';
+import { Router } from './Router';
 
 export function App() {
-	return <Welcome />;
+	return <Router />;
 }
