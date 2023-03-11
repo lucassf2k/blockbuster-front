@@ -89,7 +89,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  background: url('../../assets/house-of-the-dragon.png') no-repeat;
+  background: url('../../assets/images/house-of-the-dragon.png') no-repeat;
   background-size: cover;
   text-align: center;
   overflow: hidden;
@@ -110,8 +110,9 @@
 }
 
 .section_main--cart h3 {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 28px;
+  max-width: 380px;
   z-index: 2;
 }
 

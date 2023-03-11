@@ -1,7 +1,4 @@
-import logoImg from '../../assets/logo.svg';
-import screenMobileIcon from '../../assets/icons/screen-mobile-icon.svg';
-import screenNotebookIcon from '../../assets/icons/screen-notebook-icon.svg';
-import screenTvIcon from '../../assets/icons/screen-tv-icon.svg';
+import { ASSETS } from '../../assets';
 
 import './styles.css';
 
@@ -10,7 +7,7 @@ export function Welcome() {
 		<>
 			<header className="header_welcome">
 				<h2>
-					<img src={logoImg} alt="Logo escriot Block Buster" />
+					<img src={ASSETS.logoIcon} alt="Logo escriot Block Buster" />
 				</h2>
 				<div className="header_login--actions">
 					<button className="button_secundary">
@@ -32,9 +29,9 @@ export function Welcome() {
 
 					<div className="section_main--screens">
 						<div>
-							<img src={screenMobileIcon} alt="Ícone quadrado com o celular no meio" />
-							<img src={screenNotebookIcon} alt="Ícone quadrado com o notebook no meio" />
-							<img src={screenTvIcon} alt="Ícone quadrado com o TV no meio" />
+							<img src={ASSETS.screenMobileIcon} alt="Ícone quadrado com o celular no meio" />
+							<img src={ASSETS.screenNotebookIcon} alt="Ícone quadrado com o notebook no meio" />
+							<img src={ASSETS.screenTvIcon} alt="Ícone quadrado com o TV no meio" />
 						</div>
 						<p>
               Assista o que quiser, <br />
@@ -45,7 +42,7 @@ export function Welcome() {
 
 				<section className="section_main--slides">
 					<div className="section_main--carts">
-						<div className="section_main--cart cart-1">
+						<div className="section_main--cart">
 							<p>TEMPORADA 1 | 10 EPISÓDIOS</p>
 							<h3>The Last of Us</h3>
 							<p>
@@ -53,7 +50,7 @@ export function Welcome() {
 							</p>
 						</div>
 
-						<div className="section_main--cart cart-2">
+						<div className="section_main--cart">
 							<p>TEMPORADA 1 | 10 EPISÓDIOS</p>
 							<h3>House of the Dragon</h3>
 							<p>
@@ -61,7 +58,7 @@ export function Welcome() {
 							</p>
 						</div>
 
-						<div className="section_main--cart cart-3">
+						<div className="section_main--cart">
 							<p></p>
 							<h3>Avatar</h3>
 							<p>
