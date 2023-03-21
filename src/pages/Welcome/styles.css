@@ -41,15 +41,15 @@
 }
 
 .section_main {
-  width: 100%;
+  width: 1200px;
   margin: 0 auto;
-  height: 600px;
+  height: 520px;
   display: flex;
   overflow: hidden;
 }
 
 .section_main .section_main--presentation {
-  padding-left: 156px;
+  margin: 0px auto;
   align-self: center;
   margin-right: 84px;
 }
@@ -66,8 +66,8 @@
 }
 
 .section_main--screens div img {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
 }
 
 .section_main--screens div img + img {
@@ -81,7 +81,7 @@
 
 .section_main--slides {
   max-width: 900px;
-  height: 540px;
+  height: 520px;
   overflow: hidden;
 }
 

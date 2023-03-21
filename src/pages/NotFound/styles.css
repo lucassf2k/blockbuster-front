@@ -1,0 +1,27 @@
+.container-not-found {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-not-found h1  {
+  font-size: 100px;
+  margin-bottom: 36px;
+}
+
+.not-found--footer {
+  display: flex;
+  align-items: center;
+}
+
+.container-not-found span {
+  margin-right: 36px;
+}
+
+.container-not-found h1 strong {
+  color: var(--primary);
+}
+
