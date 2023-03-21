@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ASSETS } from '../../assets';
 
 import './styles.css';
@@ -10,12 +11,12 @@ export function Welcome() {
 					<img src={ASSETS.logoIcon} alt="Logo escriot Block Buster" />
 				</h2>
 				<div className="header_login--actions">
-					<button className="button_secundary">
-          Entrar
-					</button>
-					<button className="button_primary">
-          Criar conta
-					</button>
+					<Link to="/login" className="button_secundary">
+            Entrar
+					</Link>
+					<Link to="/" className="button_primary">
+            Criar conta
+					</Link>
 				</div>
 			</header>
 
