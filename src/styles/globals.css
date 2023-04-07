@@ -29,7 +29,8 @@ button {
   border: 0;
 }
 
-button:hover {
+button:hover,
+a:hover {
   transition: 0.2s ease-in;
   filter: brightness(0.9);
 }

@@ -49,6 +49,10 @@
   color: var(--gray2);
 }
 
+.section_form--field input:focus {
+  border: 4px solid var(--primary);
+}
+
 .section_form--field input::placeholder {
   color: var(--gray2);
 }
