@@ -5,36 +5,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BLOCKBUSTER</title>
+
+  <link rel="stylesheet" href="/css/globals.css">
+  <link rel="stylesheet" href="/css/welcome.css">
 </head>
 <body>
   
-  <header className="header_welcome">
+  <header class="header_welcome">
     <h2>
-      <img src={ASSETS.logoIcon} alt="Logo escriot Block Buster" />
+      <img src="/assets/icons/logo.svg" alt="Logo escrito Block Buster" />
     </h2>
-    <div className="header_login--actions">
-      <Link to="/login" className="button_secundary">
+    <div class="header_login--actions">
+      <a href="/login.html" class="button_secundary">
         Entrar
-      </Link>
-      <Link to="/" className="button_primary">
+      </a>
+      <a href="/" class="button_primary">
         Criar conta
-      </Link>
+      </a>
     </div>
   </header>
 
-  <main className="section_main">
-    <section className="section_main--presentation">
+  <main class="section_main">
+    <section class="section_main--presentation">
       <h1>
         Filmes, séries e muito
         mais. Tudo em um só
         lugar!
       </h1>
 
-      <div className="section_main--screens">
+      <div class="section_main--screens">
         <div>
-          <img src={ASSETS.screenMobileIcon} alt="Ícone quadrado com o celular no meio" />
-          <img src={ASSETS.screenNotebookIcon} alt="Ícone quadrado com o notebook no meio" />
-          <img src={ASSETS.screenTvIcon} alt="Ícone quadrado com o TV no meio" />
+          <img src="/assets/icons/screen-mobile-icon.svg" alt="Ícone quadrado com o celular no meio" />
+          <img src="/assets/icons/screen-notebook-icon.svg" alt="Ícone quadrado com o notebook no meio" />
+          <img src="/assets/icons/screen-tv-icon.svg" alt="Ícone quadrado com o TV no meio" />
         </div>
         <p>
           Assista o que quiser, <br />
@@ -43,9 +46,9 @@
       </div>
     </section>
 
-    <section className="section_main--slides">
-      <div className="section_main--carts">
-        <div className="section_main--cart">
+    <section class="section_main--slides">
+      <div class="section_main--carts">
+        <div class="section_main--cart">
           <p>TEMPORADA 1 | 10 EPISÓDIOS</p>
           <h3>The Last of Us</h3>
           <p>
@@ -53,7 +56,7 @@
           </p>
         </div>
 
-        <div className="section_main--cart">
+        <div class="section_main--cart">
           <p>TEMPORADA 1 | 10 EPISÓDIOS</p>
           <h3>House of the Dragon</h3>
           <p>
@@ -61,7 +64,7 @@
           </p>
         </div>
 
-        <div className="section_main--cart">
+        <div class="section_main--cart">
           <p></p>
           <h3>Avatar</h3>
           <p>
