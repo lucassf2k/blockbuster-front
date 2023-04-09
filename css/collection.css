@@ -1,14 +1,14 @@
-.carrinho-detalhes {
+.collection-details {
   padding: 32px;
 }
 
-.carrinho-detalhes h2 {
+.collection-details h2 {
   font-size: 32px;
   color: var(--gray2);
   margin-bottom: 24px;
 }
 
-.acervo-items {
+.collection-items {
   width: 100%;
   display: grid;
   max-height: 562px;
@@ -18,7 +18,7 @@
   padding: 8px;
 }
 
-.acervo-items .item {
+.collection-items .item {
   max-width: 256px;
   max-height: 256px;
   width: auto;
@@ -27,14 +27,14 @@
   border-radius: 8px;
 }
 
-.acervo-items .item img {
+.collection-items .item img {
   width: 256px;
   height: 256px;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.acervo-items .item .conteudo {
+.collection-items .item .collection-content {
   position: absolute;
   z-index: 2;
   background: linear-gradient(0deg, rgba(33, 27, 41, 0.48), rgba(33, 27, 41, 0.48));
@@ -49,7 +49,7 @@
   padding: 16px;
 }
 
-.item .conteudo .faixa-etaria {
+.item .collection-content .age-group {
   width: 34px;
   height: 34px;
   background-color: var(--yellow);
@@ -59,36 +59,37 @@
   border-radius: 4px;
 }
 
-.item .conteudo h5 {
+.item .collection-content h5 {
   margin-top: 16px;
   font-size: 20px;
   max-width: 240px;
 }
 
-.item .conteudo .item-detalhes {
+.item .collection-content .item-details {
   margin-top: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 14px;
 }
 
-.conteudo .item-detalhes .separator-circle {
+.collection-content .item-details .separator-circle {
   width: 4px;
   height: 4px;
   border-radius: 2px;
   background-color: var(--gray1);
+  align-self: center;
+}
+
+.collection-content .item-details p {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
   line-height: 17px;
 }
 
-.conteudo .item-detalhes p {
-  display: flex;
-  align-items: center;
-}
-
-.conteudo .item-detalhes p img {
+.collection-content .item-details p img {
   width: 32px;
   height: auto;
   margin-right: 8px;
-  font-weight: 400;
 }

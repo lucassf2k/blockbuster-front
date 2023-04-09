@@ -10,11 +10,11 @@
   <title>BLOCKBUSTER</title>
 
   <link rel="stylesheet" href="/css/globals.css">
-  <link rel="stylesheet" href="/css/carrinho.css">
+  <link rel="stylesheet" href="/css/cart.css">
 </head>
 <body>
 
-  <div class="container-carrinho">
+  <div class="container">
     <aside class="nav">
       <a href="./welcome.html">
         <img src="/assets/icons/logo.svg" alt="Logomarca escrito Block Buster">
@@ -50,9 +50,9 @@
       </footer>
     </aside>
 
-    <section class="carrinho-detalhes">
-      <main class="detalhes-conteudo">
-        <section class="items-adqueridos">
+    <section class="cart-details">
+      <main class="content-details">
+        <section class="acquired-items">
           <h4>Carrinho</h4>
 
           <div class="items">
@@ -62,7 +62,7 @@
                 <strong>COMPRA</strong>
                 <p>House of the dragon</p>
               </div>
-              <div class="item-preco">
+              <div class="item-price">
                 <p>R$ 129,99</p>
               </div>
             </div>
@@ -74,7 +74,7 @@
                 <strong>COMPRA</strong>
                 <p>House of the dragon</p>
               </div>
-              <div class="item-preco">
+              <div class="item-price">
                 <p>R$ 129,99</p>
               </div>
             </div>
@@ -86,7 +86,7 @@
                 <strong>COMPRA</strong>
                 <p>House of the dragon</p>
               </div>
-              <div class="item-preco">
+              <div class="item-price">
                 <p>R$ 129,99</p>
               </div>
             </div>
@@ -98,7 +98,7 @@
                 <strong>ALUGUEL</strong>
                 <p>House of the dragon</p>
               </div>
-              <div class="item-preco">
+              <div class="item-price">
                 <fieldset>
                   <label for="amountOfRent">
                     Quantidade <br>
@@ -106,9 +106,9 @@
                   </label>
                   <input 
                     type="number" 
-                    min="7" 
+                    min="1" 
                     id="amountOfRent"
-                    value="7"
+                    value="1"
                   >
                 </fieldset>
                 <p>R$ 9,99</p>
@@ -118,27 +118,27 @@
           </div>
 
         </section>
-        <section class="pagamento">
-          <div class="detalhes">
+        <section class="container-payment">
+          <div class="payment-details">
             <h4>
               Método de pagamento
             </h4>
             <fieldset>
-              <div class="item-pagamento">
+              <div class="payment-item">
                 <input type="checkbox">
                 <p>Pix</p>
               </div>
-              <div class="item-pagamento">
+              <div class="payment-item">
                 <input type="checkbox">
                 <p>Cartão de crédito</p>
               </div>
-              <div class="item-pagamento">
+              <div class="payment-item">
                 <input type="checkbox">
                 <p>Boleto</p>
               </div>
             </fieldset>
           </div>
-          <div class="resumo">  
+          <div class="payment">  
             <h4>Resumo</h4>
             <p>TOTAL <strong>R$ 269,96</strong></p>
             <button type="button">
