@@ -62,7 +62,7 @@
 .detalhes-conteudo .items-adqueridos {
   padding: 32px;
   width: 682px;
-  max-height: 540px;
+  max-height: 580px;
   margin-right: 16px;
   background: var(--black2);
   border-radius: 8px;
@@ -84,6 +84,7 @@
   width: 80px;
   height: 80px;
   border-radius: 8px;
+  object-fit: contain;
 }
 
 .items-adqueridos .item .item-details {
@@ -101,9 +102,44 @@
   margin-top: 8px;
 }
 
-.item .item-preco {
+.item .item-preco p {
   font-size: 24px;
   font-weight: 700;
+  text-align: end;
+}
+
+.item .item-preco fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.item .item-preco fieldset label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-preco fieldset label span {
+  display: inline-block;
+  flex: 1;
+  align-self: end;
+}
+
+.item-preco fieldset input {
+  width: 122px;
+  height: 40px;
+  padding: 8px;
+  border: 0;
+  border-radius: 4px;
+}
+
+.item-preco fieldset p {
+
 }
 
 .items-adqueridos .separador {
