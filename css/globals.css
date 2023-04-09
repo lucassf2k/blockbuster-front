@@ -24,9 +24,18 @@ input, button, textarea {
   font-family: 'Inter', sans-serif;
 }
 
+fieldset {
+  border: 0;
+}
+
 button {
   cursor: pointer;
   border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--gray2);
 }
 
 button:hover,

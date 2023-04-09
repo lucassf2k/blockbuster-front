@@ -1,0 +1,198 @@
+.container-carrinho {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.container-carrinho .nav {
+  height: 100%;
+  width: 256px;
+  background: var(--black2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.container-carrinho .nav nav {
+  justify-self: self-start;
+  flex: 1;
+  margin-top: 64px;
+}
+
+.container-carrinho .nav nav a {
+  display: flex;
+  align-items: center;
+}
+
+.container-carrinho .nav nav a + a {
+  margin-top: 24px;
+}
+
+.nav nav a img {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}
+
+.container-carrinho .nav footer a {
+  display: flex;
+  align-items: center;
+}
+
+.container-carrinho .nav footer a + a {
+  margin-top: 24px;
+}
+
+.nav footer a img {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}
+
+.carrinho-detalhes {
+  flex: 1;
+}
+
+.carrinho-detalhes .detalhes-conteudo {
+  padding: 32px 32px;
+  display: flex;
+}
+
+.detalhes-conteudo .items-adqueridos {
+  padding: 32px;
+  width: 682px;
+  max-height: 540px;
+  margin-right: 16px;
+  background: var(--black2);
+  border-radius: 8px;
+}
+
+.detalhes-conteudo .items-adqueridos h4 {
+  font-size: 24px;
+  color: var(--gray2);
+  margin-bottom: 32px;
+}
+
+.detalhes-conteudo .items-adqueridos .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.items-adqueridos .item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+.items-adqueridos .item .item-details {
+  flex: 1;
+  margin-left: 24px;
+}
+
+.item .item-details strong {
+  font-size: 12px;
+  color: var(--gray2);
+}
+
+.item .item-details p {
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.item .item-preco {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.items-adqueridos .separador {
+  width: 100%;
+  height: 1px;
+  background-color: var(--black3);
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.detalhes-conteudo .pagamento {
+  flex: 1;
+  align-self: self-start;
+}
+
+.pagamento .detalhes {
+  padding: 32px;
+  background-color: var(--black2);
+  border-radius: 8px;
+}
+
+.pagamento .detalhes h4 {
+  font-size: 24px;
+  color: var(--gray2);
+  margin-bottom: 24px;
+}
+
+.pagamento .detalhes .item-pagamento {
+  border: 1px solid var(--gray2);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.detalhes .item-pagamento p {
+  margin-left: 16px;
+  color: var(--gray2);
+}
+
+.detalhes .item-pagamento input {
+  all: unset;
+  display: inline-block;
+  border: 1px solid var(--gray2);
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+}
+
+.detalhes .item-pagamento + .item-pagamento {
+  margin-top: 8px;
+}
+
+.detalhes .item-pagamento input:checked {
+   background-color: var(--gray1);
+}
+
+.pagamento .resumo {
+  margin-top: 32px;
+  padding: 32px;
+  background-color: var(--black2);
+  border-radius: 8px;
+}
+
+.pagamento .resumo h4 {
+  font-size: 24px;
+  color: var(--gray2);
+}
+
+.pagamento .resumo p {
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+  color: var(--gray2);
+}
+
+.pagamento .resumo p strong {
+  color: var(--gray1);
+}
+
+.pagamento .resumo button {
+  width: 100%;
+  padding: 24px 16px;
+  border-radius: 8px;
+  font-size: 24px;
+  color: var(--gray1);
+  background: var(--primary);
+  margin-top: 32px;
+}
