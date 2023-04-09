@@ -8,6 +8,17 @@
   --yellow: #FFCC17;
 }
 
+::-webkit-scrollbar {
+  background: transparent;
+  width: 4px;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gray2);
+  border-radius: 8px;
+}
+
 * {
   margin: 0;
   padding: 0;

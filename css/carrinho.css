@@ -74,6 +74,12 @@
   margin-bottom: 32px;
 }
 
+.detalhes-conteudo .items-adqueridos .items {
+  height: 480px;
+  overflow-y: scroll;
+  padding: 8px;
+}
+
 .detalhes-conteudo .items-adqueridos .item {
   display: flex;
   align-items: center;
