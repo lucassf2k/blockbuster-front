@@ -1,3 +1,7 @@
+.display-none {
+  display: none;
+}
+
 .container-player {
   width: 90vw;
   height: 90vh;
