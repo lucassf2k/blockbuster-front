@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: justify;
+  align-items: center;
+  min-height: 100vh;
+  background: #1A161F;
+  font-family: 'Inter', sans-serif;
+  color: #6C627A; 
+}
+
+.logo {
+  padding-top: 50px;
+  padding-left: 30px;
+}
+
+.navigation {
+  position: relative;
+  height: 100vh;
+  background: #322A3D;
+  width: 250px;        
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 10px;
+  padding-top: 150px;
+}
+
+.navigation ul li {
+  position: relative;
+  list-style: none;
+  width: 100%;    
+}
+
+.navigation ul li a {
+  position: relative;
+  display: flex;
+  width: 100%;
+  text-decoration: none;   
+  color: #6C627A; 
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 70px;
+}
+
+
+.navigation ul li a .icon ion-icon {
+  position: relative;
+  font-size: 1.5rem;
+  z-index: 1;
+}
+
+.list1 {
+  padding-top: 100px;
+}
+
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding-left: 10px;
+  height: 60px;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+.container {
+  position: relative;
+  height: 100vh;    
+  width: 100vw;
+  padding-top: 85px;
+  padding-left: 85px;     
+  line-height: 30px;     
+}
+
+.container h2 {    
+  font-size: 25px;
+  padding-bottom: 40px;    
+}
+
+.container h3 {
+  font-size: 18px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.btn {
+  padding: 12px;
+  color: #fff;    
+  border: none;
+  margin-top: 250px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all linear 190ms;    
+}
+
+.mudar {
+  background-color: #8931F5;
+}
+
+.excluir {
+  background-color: #e55757;
+  margin-left: 10px;
+}
