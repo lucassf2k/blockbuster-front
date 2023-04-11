@@ -1,0 +1,96 @@
+:root{
+  --background: #1A161F;
+  --purple-font: #8931F5;
+  --gray-font: #F9F5FF;
+  --form-background: #322A3D;
+}
+
+body{
+  margin: 0;
+  background: var(--background);
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+.purple{
+  color: var(--purple-font);
+}
+
+.gray{
+  color: var(--gray-font);
+}
+
+.main-login{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-login{
+  width: 50vw;
+  height: 50vh;
+}
+
+.left-login > h1{
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 129.09px;
+  line-height: 129.09px;
+}
+
+.card-login{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+}
+
+.card-login > h3{
+  margin-right: auto;
+}
+
+.textfield{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 10px 0px;
+  margin: 10px 0px;
+}
+
+.textfield > input{
+  width: 300px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px;
+  background: var(--form-background);
+  color: white;
+}
+
+.textfield > input:focus{
+  outline: 1px solid var(--purple-font);
+}
+
+.card-login > a{
+  margin-left: 160px;
+  text-decoration: none;
+}
+
+.btn-login{
+  width: 70%;
+  padding: 10px 0px;
+  margin: 25px;
+  border: none;
+  border-radius: 5px;
+  background: var(--purple-font);
+  font-family: 'Inter',sans-serif;
+  font-size: 10pt;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
