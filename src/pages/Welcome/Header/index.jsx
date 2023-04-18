@@ -13,7 +13,7 @@ export function Header() {
         <Link to="/login" className="button_secundary">
           Entrar
         </Link>
-        <Link to="/" className="button_primary">
+        <Link to="/register" className="button_primary">
           Criar conta
         </Link>
       </div>

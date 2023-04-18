@@ -37,7 +37,7 @@ export function Welcome() {
               title="The Batman"
               infos="2h56m"
               description="Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população."
-              imageUrl={ASSETS.houseOfTheDragonImg}
+              imageUrl={ASSETS.theBatmanImg}
             />
             <PresentationCard
               title="The House of the Dragon"
@@ -49,7 +49,7 @@ export function Welcome() {
               title="The Last of Us"
               infos="1 Temp | 9 episódios"
               description=" The Last of Us é uma série distópica da HBO baseada na franquia de jogos de videogame de mesmo nome criada por Neil Druckmann. O drama narra um futuro pandêmico que foi devastador para humanidade, deixando os seres humanos à beira da extinção. O vírus transforma pessoas em canibais e se espalha rapidamente com uma simples mordida."
-              imageUrl={ASSETS.houseOfTheDragonImg}
+              imageUrl={ASSETS.theLastOfUsImg}
             />
 					</div>
 				</section>
