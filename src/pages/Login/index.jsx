@@ -1,4 +1,5 @@
 import { ASSETS } from '../../assets';
+import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 
 import './styles.css';
@@ -26,9 +27,10 @@ export function Login() {
         />
 				<span>Esqueci minha senha</span>
 
-				<button type="button">
-          Entrar
-				</button>
+				<Button
+          title="Entrar"
+          type="submit"
+        />
 
 				<p className="section_form-footer">
           Não possui conta?
