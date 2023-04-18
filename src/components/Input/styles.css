@@ -1,0 +1,30 @@
+.section_form--field {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.section_form--field + .section_form--field {
+  margin-top: 24px;
+}
+
+.section_form--field label {
+  margin-bottom: 8px;
+}
+
+.section_form--field input {
+  height: 50px;
+  border-radius: 8px;
+  background: var(--black2);
+  border: 0;
+  padding: 16px;
+  color: var(--gray2);
+}
+
+.section_form--field input:focus {
+  border: 4px solid var(--primary);
+}
+
+.section_form--field input::placeholder {
+  color: var(--gray2);
+}

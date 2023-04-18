@@ -46,8 +46,8 @@ export function Welcome() {
               imageUrl={ASSETS.houseOfTheDragonImg}
             />
             <PresentationCard
-              title="The House of the Dragon"
-              infos="1 Temp | 10 episódios"
+              title="The Last of Us"
+              infos="1 Temp | 9 episódios"
               description=" The Last of Us é uma série distópica da HBO baseada na franquia de jogos de videogame de mesmo nome criada por Neil Druckmann. O drama narra um futuro pandêmico que foi devastador para humanidade, deixando os seres humanos à beira da extinção. O vírus transforma pessoas em canibais e se espalha rapidamente com uma simples mordida."
               imageUrl={ASSETS.houseOfTheDragonImg}
             />

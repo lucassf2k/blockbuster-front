@@ -1,4 +1,5 @@
 import { ASSETS } from '../../assets';
+import { Input } from '../../components/Input';
 
 import './styles.css';
 
@@ -11,14 +12,18 @@ export function Login() {
 
 			<main className="section_form">
 				<h3>Acesse</h3>
-				<fieldset className="section_form--field">
-					<label htmlFor="#">E-mail</label>
-					<input type="email" placeholder="Seu e-mail" />
-				</fieldset>
-				<fieldset className="section_form--field">
-					<label htmlFor="#">Senha</label>
-					<input type="password" placeholder="Sua senha" />
-				</fieldset>
+        <Input
+          id="email"
+          label="E-mail"
+          type="email"
+          placeholder="alan-turing@exemple.com"
+        />
+				<Input
+          id="password"
+          label="Senha"
+          type="password"
+          placeholder="**********"
+        />
 				<span>Esqueci minha senha</span>
 
 				<button type="button">
