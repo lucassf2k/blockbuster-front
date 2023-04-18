@@ -52,56 +52,6 @@
   gap: 8px;
 }
 
-.section_main--cart {
-  position: relative;
-  min-width: 400px;
-  height: 100%;
-  scale: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  background: url('../../assets/images/house-of-the-dragon.png') no-repeat;
-  background-size: cover;
-  text-align: center;
-  overflow: hidden;
-}
-
-.section_main--cart:nth-child(2) {
-  scale: 100%;
-}
-
-.section_main--cart p {
-  max-width: 380px;
-  font-size: 14px;
-  z-index: 1;
-}
-
-.section_main--cart p:first-child {
-  margin-bottom: 8px;
-}
-
-.section_main--cart h3 {
-  font-size: 32px;
-  margin-bottom: 28px;
-  max-width: 380px;
-  z-index: 2;
-}
-
-.section_main--cart p {
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.section_main--cart::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #211B29 28.13%, rgba(33, 27, 41, 0) 100%);
-  transform: rotate(-180deg);
-}
-
 @media(max-width: 880px) {
   .header_welcome {
     flex-direction: column;
