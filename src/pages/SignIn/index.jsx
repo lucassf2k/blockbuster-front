@@ -4,7 +4,7 @@ import { Input } from '../../components/Input';
 
 import './styles.css';
 
-export function Login() {
+export function SignIn() {
 	return (
 		<section className="section_login">
 			<h2 className="section_login--logo">

@@ -10,10 +10,10 @@ export function Header() {
         <img src={ASSETS.logoIcon} alt="Logo escriot Block Buster" />
       </h2>
       <div className="header_login--actions">
-        <Link to="/login" className="button_secundary">
+        <Link to="/signin" className="button_secundary">
           Entrar
         </Link>
-        <Link to="/register" className="button_primary">
+        <Link to="/signup" className="button_primary">
           Criar conta
         </Link>
       </div>
