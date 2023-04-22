@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import './styles.css';
 
 export function PresentationCard({ title, description, imageUrl, infos }) {
@@ -14,3 +16,10 @@ export function PresentationCard({ title, description, imageUrl, infos }) {
     </div>
   );
 }
+
+PresentationCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  infos: PropTypes.string.isRequired,
+};
