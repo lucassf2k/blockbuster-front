@@ -14,7 +14,11 @@ export function Item(props) {
         <div className="item-details">
           <p>{props.releaseYear}</p>
           <div className="separator-circle"></div>
-          <p>{props.duration}</p>
+          {props.isSerie ? (
+            <p>{props.season} Temp</p>
+          ) : (
+            <p>{props.duration}</p>
+          )}
           <div className="separator-circle"></div>
           <p>
             <img src={ASSETS.imgbLogoImg} alt="Imdb logomarca" />
@@ -31,6 +35,9 @@ Item.propTypes = {
   ageGroup: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   releaseYear: PropTypes.string.isRequired,
-  duration: PropTypes.string.isRequired,
+  duration: PropTypes.string,
   rating: PropTypes.string.isRequired,
+  season: PropTypes.string,
+  amountEpsodes: PropTypes.number,
+  isSerie: PropTypes.bool,
 };
