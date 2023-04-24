@@ -1,0 +1,45 @@
+.nav {
+  height: 100%;
+  width: 256px;
+  background: var(--black2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.nav nav {
+  justify-self: self-start;
+  flex: 1;
+  margin-top: 64px;
+}
+
+.nav nav a {
+  display: flex;
+  align-items: center;
+}
+
+.nav nav a + a {
+  margin-top: 24px;
+}
+
+.nav nav a img {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}
+
+.nav footer a {
+  display: flex;
+  align-items: center;
+}
+
+.nav footer a + a {
+  margin-top: 24px;
+}
+
+.nav footer a img {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}

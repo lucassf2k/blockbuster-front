@@ -5,6 +5,18 @@
   --primary: #8931F5;
   --gray1: #F9F5FF;
   --gray2: #9E92AD;
+  --yellow: #FFCC17;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 4px;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gray2);
+  border-radius: 8px;
 }
 
 * {
@@ -24,9 +36,18 @@ input, button, textarea {
   font-family: 'Inter', sans-serif;
 }
 
+fieldset {
+  border: 0;
+}
+
 button {
   cursor: pointer;
   border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--gray2);
 }
 
 button:hover,
