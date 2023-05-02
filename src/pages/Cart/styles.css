@@ -1,0 +1,184 @@
+.cart-details {
+  flex: 1;
+}
+
+.cart-details .content-details {
+  padding: 32px 32px;
+  display: flex;
+}
+
+.content-details .acquired-items {
+  padding: 32px;
+  width: 682px;
+  max-height: 580px;
+  margin-right: 16px;
+  background: var(--black2);
+  border-radius: 8px;
+}
+
+.content-details .acquired-items h4 {
+  font-size: 24px;
+  color: var(--gray2);
+  margin-bottom: 32px;
+}
+
+.content-details .acquired-items .items {
+  height: 480px;
+  overflow-y: scroll;
+  padding: 8px;
+}
+
+.content-details .acquired-items .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.acquired-items .item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.acquired-items .item .item-details {
+  flex: 1;
+  margin-left: 24px;
+}
+
+.acquired-items .item .item-details strong {
+  font-size: 12px;
+  color: var(--gray2);
+}
+
+.acquired-items .item .item-details p {
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.acquired-items .item .item-price p {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: end;
+}
+
+.acquired-items .item .item-price fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.acquired-items .item .item-price fieldset label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.acquired-items .item-price fieldset label span {
+  display: inline-block;
+  flex: 1;
+  align-self: end;
+}
+
+.acquired-items .item-price fieldset input {
+  width: 122px;
+  height: 40px;
+  padding: 8px;
+  border: 0;
+  border-radius: 4px;
+}
+
+.acquired-items .separador {
+  width: 100%;
+  height: 1px;
+  background-color: var(--black3);
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.content-details .container-payment {
+  flex: 1;
+  align-self: self-start;
+}
+
+.container-payment .payment-details {
+  padding: 32px;
+  background-color: var(--black2);
+  border-radius: 8px;
+}
+
+.container-payment .payment-details h4 {
+  font-size: 24px;
+  color: var(--gray2);
+  margin-bottom: 24px;
+}
+
+.container-payment .payment-details .payment-item {
+  border: 1px solid var(--gray2);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.payment-details .payment-item p {
+  margin-left: 16px;
+  color: var(--gray2);
+}
+
+.payment-details .payment-item input {
+  all: unset;
+  display: inline-block;
+  border: 1px solid var(--gray2);
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+}
+
+.payment-details .payment-item + .payment-item {
+  margin-top: 8px;
+}
+
+.payment-details .payment-item input:checked {
+   background-color: var(--gray1);
+}
+
+.container-payment .payment {
+  margin-top: 32px;
+  padding: 32px;
+  background-color: var(--black2);
+  border-radius: 8px;
+}
+
+.container-payment .payment h4 {
+  font-size: 24px;
+  color: var(--gray2);
+}
+
+.container-payment .payment p {
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+  color: var(--gray2);
+}
+
+.container-payment .payment p strong {
+  color: var(--gray1);
+}
+
+.container-payment .payment button {
+  width: 100%;
+  padding: 24px 16px;
+  border-radius: 8px;
+  font-size: 24px;
+  color: var(--gray1);
+  background: var(--primary);
+  margin-top: 32px;
+}

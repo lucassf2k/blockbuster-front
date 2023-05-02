@@ -5,6 +5,7 @@ import { SignIn } from '../pages/SignIn';
 import { SignUp } from '../pages/SignUp';
 import { NotFound } from '../pages/NotFound';
 import { MyList } from '../pages/MyList';
+import { Cart } from '../pages/Cart';
 
 export function Router() {
 	return (
@@ -14,6 +15,7 @@ export function Router() {
 				<Route path='/signin' element={<SignIn />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/mylist' element={<MyList />} />
+        <Route path='/cart' element={<Cart />} />
 				<Route path='*' element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>
