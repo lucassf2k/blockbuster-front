@@ -1,13 +1,9 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import './styles.css';
+import "./styles.css";
 
 export function Wrapper({ children }) {
-  return (
-    <div className="wrapper">
-      {children}
-    </div>
-  );
+  return <div className="wrapper">{children}</div>;
 }
 
 Wrapper.propTypes = {

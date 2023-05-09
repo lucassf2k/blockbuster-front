@@ -1,38 +1,43 @@
-import { ASSETS } from '../../assets';
+import { ASSETS } from "../../assets";
 
-import './styles.css';
+import "./styles.css";
 
-import { Header } from './Header';
-import { PresentationCard } from './PresentationCard';
+import { Header } from "./Header";
+import { PresentationCard } from "./PresentationCard";
 
 export function Welcome() {
-	return (
-		<>
-			<Header />
+  return (
+    <>
+      <Header />
 
-			<main className="section_main">
-				<section className="section_main--presentation">
-					<h1>
-            Filmes, séries e muito
-            mais. Tudo em um só
-            lugar!
-					</h1>
+      <main className="section_main">
+        <section className="section_main--presentation">
+          <h1>Filmes, séries e muito mais. Tudo em um só lugar!</h1>
 
-					<div className="section_main--screens">
-						<div>
-							<img src={ASSETS.screenMobileIcon} alt="Ícone quadrado com o celular no meio" />
-							<img src={ASSETS.screenNotebookIcon} alt="Ícone quadrado com o notebook no meio" />
-							<img src={ASSETS.screenTvIcon} alt="Ícone quadrado com o TV no meio" />
-						</div>
-						<p>
+          <div className="section_main--screens">
+            <div>
+              <img
+                src={ASSETS.screenMobileIcon}
+                alt="Ícone quadrado com o celular no meio"
+              />
+              <img
+                src={ASSETS.screenNotebookIcon}
+                alt="Ícone quadrado com o notebook no meio"
+              />
+              <img
+                src={ASSETS.screenTvIcon}
+                alt="Ícone quadrado com o TV no meio"
+              />
+            </div>
+            <p>
               Assista o que quiser, <br />
               aonde quiser.
-						</p>
-					</div>
-				</section>
+            </p>
+          </div>
+        </section>
 
-				<section className="section_main--slides">
-					<div className="section_main--carts">
+        <section className="section_main--slides">
+          <div className="section_main--carts">
             <PresentationCard
               title="The Batman"
               infos="2h56m"
@@ -51,9 +56,9 @@ export function Welcome() {
               description=" The Last of Us é uma série distópica da HBO baseada na franquia de jogos de videogame de mesmo nome criada por Neil Druckmann. O drama narra um futuro pandêmico que foi devastador para humanidade, deixando os seres humanos à beira da extinção. O vírus transforma pessoas em canibais e se espalha rapidamente com uma simples mordida."
               imageUrl={ASSETS.theLastOfUsImg}
             />
-					</div>
-				</section>
-			</main>
-		</>
-	);
+          </div>
+        </section>
+      </main>
+    </>
+  );
 }

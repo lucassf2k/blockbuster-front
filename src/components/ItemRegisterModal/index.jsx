@@ -1,34 +1,34 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import './styles.css'
+import "./styles.css";
 
-import { Input } from '../Input'
-import { Button } from '../Button'
+import { Input } from "../Input";
+import { Button } from "../Button";
 
 export function ItemRegisterModal({ isOpen = true }) {
   if (!isOpen) {
-    return null
+    return null;
   }
 
-  const [isMovie, setIsMovie] = useState(false)
-  const [name, setName] = useState('')
-  const [releaseYaer, setReleaseYear] = useState('')
-  const [parentalRating, setParentalRating] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
-  const [videoUrl, setVideoUrl] = useState('')
+  const [isMovie, setIsMovie] = useState(false);
+  const [name, setName] = useState("");
+  const [releaseYaer, setReleaseYear] = useState("");
+  const [parentalRating, setParentalRating] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [videoUrl, setVideoUrl] = useState("");
 
-  const [season, setSeason] = useState('')
-  const [numberOfEpsodes, setNumberOfEpsodes] = useState(0)
-  const [duration, setDuration] = useState(0)
+  const [season, setSeason] = useState("");
+  const [numberOfEpsodes, setNumberOfEpsodes] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   function handleChoiceBetweenMovieAndSerie(typeItem) {
-    const typeItemIsMovie = typeItem === 'serie' ? true : false
-    setIsMovie(typeItemIsMovie)
+    const typeItemIsMovie = typeItem === "serie" ? true : false;
+    setIsMovie(typeItemIsMovie);
   }
 
   function handleSubmit(event) {
-    event.preventDefault()
-    console.log(name)
+    event.preventDefault();
+    console.log(name);
   }
 
   return (
@@ -42,16 +42,24 @@ export function ItemRegisterModal({ isOpen = true }) {
         <p>Tipo</p>
         <div className="choice">
           <button
-            style={isMovie ? null : { background: 'var(--primary)', color: 'var(--gray1)' }}
+            style={
+              isMovie
+                ? null
+                : { background: "var(--primary)", color: "var(--gray1)" }
+            }
             type="button"
-            onClick={() => handleChoiceBetweenMovieAndSerie('movie')}
+            onClick={() => handleChoiceBetweenMovieAndSerie("movie")}
           >
             Filme
           </button>
           <button
-            style={isMovie ? { background: 'var(--primary)', color: 'var(--gray1)' } : null}
+            style={
+              isMovie
+                ? { background: "var(--primary)", color: "var(--gray1)" }
+                : null
+            }
             type="button"
-            onClick={() => handleChoiceBetweenMovieAndSerie('serie')}
+            onClick={() => handleChoiceBetweenMovieAndSerie("serie")}
           >
             Série
           </button>
@@ -77,11 +85,7 @@ export function ItemRegisterModal({ isOpen = true }) {
           />
           {isMovie ? (
             <>
-              <Input
-                label="Temporada"
-                id="season"
-                placeholder="1"
-              />
+              <Input label="Temporada" id="season" placeholder="1" />
               <Input
                 label="Quantidade de Episódios"
                 id="numberEpsodes"
@@ -90,27 +94,15 @@ export function ItemRegisterModal({ isOpen = true }) {
             </>
           ) : (
             <>
-              <Input
-                label="Duração"
-                id="duration"
-                placeholder="2h56m"
-              />
+              <Input label="Duração" id="duration" placeholder="2h56m" />
             </>
           )}
 
-          <Input
-            label="Video Url"
-            id="videoUrl"
-            placeholder="https:/"
-          />
-          <Input
-            label="Capa Url"
-            id="imageUrl"
-            placeholder="https:/"
-          />
+          <Input label="Video Url" id="videoUrl" placeholder="https:/" />
+          <Input label="Capa Url" id="imageUrl" placeholder="https:/" />
           <Button title="Confirmar" />
         </form>
       </div>
     </div>
-  )
+  );
 }

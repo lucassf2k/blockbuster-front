@@ -1,4 +1,4 @@
-import './styles.css'
+import "./styles.css";
 
 export function Input({ label, id, onChange, ...rest }) {
   return (
@@ -6,5 +6,5 @@ export function Input({ label, id, onChange, ...rest }) {
       <label htmlFor={id}>{label}</label>
       <input id={id} onChange={onChange} {...rest} />
     </fieldset>
-  )
+  );
 }
