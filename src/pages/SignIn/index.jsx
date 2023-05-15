@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import { ASSETS } from "../../assets";
 import { Button } from "../../components/Button";
@@ -8,7 +8,13 @@ import "./styles.css";
 
 import { api } from "../../services/api";
 
+import { Context } from "../../Context/AuthContext";
+
 export function SignIn() {
+  const { authenticated, handleLogin } = useContext(Context);
+
+  console.log("Login", authenticated);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -30,10 +36,7 @@ export function SignIn() {
       return;
     }
 
-    const token = await api.post("signin", {
-      email,
-      password,
-    });
+    handleLogin({ email, password });
   };
 
   return (

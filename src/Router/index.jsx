@@ -1,4 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useContext } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+import { Context } from "../Context/AuthContext";
 
 import { Welcome } from "../pages/Welcome";
 import { SignIn } from "../pages/SignIn";
@@ -7,17 +10,49 @@ import { NotFound } from "../pages/NotFound";
 import { MyList } from "../pages/MyList";
 import { Cart } from "../pages/Cart";
 
+import { AuthProvider } from "../Context/AuthContext";
+
+function PrivateRoute({ children }) {
+  const { isLoading, authenticated } = useContext(Context);
+
+  if (isLoading) {
+    <h1>Loading...</h1>;
+  }
+
+  if (!authenticated) {
+    return <Navigate to="/signin" replace />;
+  }
+
+  return children;
+}
+
 export function Router() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/mylist" element={<MyList />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/mylist"
+            element={
+              <PrivateRoute>
+                <MyList />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <PrivateRoute>
+                <Cart />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
