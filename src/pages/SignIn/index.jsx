@@ -6,14 +6,10 @@ import { Input } from "../../components/Input";
 
 import "./styles.css";
 
-import { api } from "../../services/api";
-
 import { Context } from "../../Context/AuthContext";
 
 export function SignIn() {
-  const { authenticated, handleLogin } = useContext(Context);
-
-  console.log("Login", authenticated);
+  const { handleLogin } = useContext(Context);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

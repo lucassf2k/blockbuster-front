@@ -5,7 +5,7 @@ const Context = createContext();
 import { useAuth } from "./hooks/useAuth";
 
 function AuthProvider({ children }) {
-  const [isLoading, authenticated, handleLogin, handleLogout] = useAuth();
+  const { isLoading, authenticated, handleLogin, handleLogout } = useAuth();
 
   return (
     <Context.Provider
