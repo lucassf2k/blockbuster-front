@@ -21,12 +21,14 @@ export function useAuth() {
   }, []);
 
   async function handleLogin({ email, password }) {
-    const {
-      data: { token },
-    } = await api.post("/singin", {
+    const { headers } = await api.post("/login", {
       email,
-      password,
+      senha: password,
     });
+
+    const authorization = headers.authorization;
+
+    const [, token] = authorization.split(" ");
 
     if (!token) return;
 
@@ -42,8 +44,8 @@ export function useAuth() {
     setAuthenticated(false);
     localStorage.removeItem("@BLOCKBUSTER:token");
     api.defaults.headers.Authorization = undefined;
-    navigate("/singin");
+    navigate("/login");
   }
 
-  return [isLoading, authenticated, handleLogin, handleLogout];
+  return { isLoading, authenticated, handleLogin, handleLogout };
 }
