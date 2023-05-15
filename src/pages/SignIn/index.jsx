@@ -10,6 +10,8 @@ import { api } from "../../services/api";
 
 import { Context } from "../../Context/AuthContext";
 
+import { Link } from "react-router-dom";
+
 export function SignIn() {
   const { authenticated, handleLogin } = useContext(Context);
 
@@ -69,9 +71,7 @@ export function SignIn() {
 
         <p className="section_form-footer">
           Não possui conta?
-          <a href="#">
-            <strong>Clique aqui!</strong>
-          </a>
+          <Link to="/signup"><strong>Clique aqui!</strong></Link>
         </p>
       </form>
     </section>
