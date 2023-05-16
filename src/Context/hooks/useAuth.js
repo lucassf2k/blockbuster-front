@@ -44,7 +44,7 @@ export function useAuth() {
     setAuthenticated(false);
     localStorage.removeItem("@BLOCKBUSTER:token");
     api.defaults.headers.Authorization = undefined;
-    navigate("/login");
+    navigate("/signin");
   }
 
   return { isLoading, authenticated, handleLogin, handleLogout };
