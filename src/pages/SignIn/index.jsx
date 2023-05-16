@@ -6,14 +6,12 @@ import { Input } from "../../components/Input";
 
 import "./styles.css";
 
-import { api } from "../../services/api";
-
 import { Context } from "../../Context/AuthContext";
 
-export function SignIn() {
-  const { authenticated, handleLogin } = useContext(Context);
+import { Link } from "react-router-dom";
 
-  console.log("Login", authenticated);
+export function SignIn() {
+  const { handleLogin } = useContext(Context);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -69,9 +67,7 @@ export function SignIn() {
 
         <p className="section_form-footer">
           Não possui conta?
-          <a href="#">
-            <strong>Clique aqui!</strong>
-          </a>
+          <Link to="/signup"><strong>Clique aqui!</strong></Link>
         </p>
       </form>
     </section>
