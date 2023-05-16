@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { ASSETS } from "../../assets";
 
 import "./styles.css";
 
+import { Context } from "../../Context/AuthContext";
+
 export function SideBar() {
+  const { handleLogout } = useContext(Context);
+
   return (
     <aside className="nav">
       <Link to="/">
@@ -34,10 +39,10 @@ export function SideBar() {
           <img src={ASSETS.accountIcon} alt="Ícone com uma casa" />
           <p>Minha conta</p>
         </Link>
-        <Link to="/">
+        <button type="button" onClick={handleLogout}>
           <img src={ASSETS.exitIcon} alt="Ícone com uma casa" />
           <p>Sair</p>
-        </Link>
+        </button>
       </footer>
     </aside>
   );

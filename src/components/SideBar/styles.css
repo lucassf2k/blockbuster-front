@@ -29,16 +29,22 @@
   margin-right: 16px;
 }
 
-.nav footer a {
+.nav footer a,
+.nav footer button {
   display: flex;
   align-items: center;
+  background-color: transparent;
+  color: var(--gray2);
+  font-size: 16px;
 }
 
-.nav footer a + a {
+.nav footer a + a,
+.nav footer a + button {
   margin-top: 24px;
 }
 
-.nav footer a img {
+.nav footer a img,
+.nav footer button img {
   width: 24px;
   height: 24px;
   margin-right: 16px;
