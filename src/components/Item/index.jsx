@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import "./styles.css";
 import { ASSETS } from "../../assets";
 
@@ -23,15 +22,3 @@ export function Item(props) {
     </div>
   );
 }
-
-Item.propTypes = {
-  imageURL: PropTypes.string.isRequired,
-  ageGroup: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  releaseYear: PropTypes.string.isRequired,
-  duration: PropTypes.string,
-  rating: PropTypes.string.isRequired,
-  season: PropTypes.string,
-  amountEpsodes: PropTypes.number,
-  isSerie: PropTypes.bool,
-};

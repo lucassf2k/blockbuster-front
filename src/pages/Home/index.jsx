@@ -1,6 +1,7 @@
 import "./styles.css";
 
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import { SideBar } from "../../components/SideBar";
 import { Wrapper } from "../../components/Wrapper";
@@ -8,7 +9,23 @@ import { Item } from "../../components/Item";
 
 import { ASSETS } from "../../assets";
 
+import { api } from "../../services/api";
+
 export function Home(){
+    const [movie, setMovie] = useState([]);
+    const [serie, setSerie] = useState([]);
+
+    async function loadMovie(){
+        const responseMovie = await api.get("movies");
+        const responseSerie = await api.get("series");
+        setMovie(responseMovie.data);
+        setSerie(responseSerie.data);
+    }
+
+    useEffect(() => {
+        loadMovie();
+    },[])
+
     return(
         <Wrapper>
             <SideBar/>
@@ -30,39 +47,36 @@ export function Home(){
 
                 <div className="genders">
                     <section className="collection-details">
-                        <h3>Ação</h3>
+                        <h3 className="gray2">Nosso Acervo</h3>
                         <div className="collection-items">
-                        {items.map((item) => (
+                        {movie.map((item) => (
                             <Item
-                            key={item.id}
-                            name={item.name}
-                            ageGroup={item.ageGroup}
+                            key={item.title}
+                            name={item.title}
+                            ageGroup={item.advisoryRating}
                             duration={item.duration}
                             season={item.season}
                             amountEpsodes={item.amountEpsodes}
-                            imageURL={item.imageURL}
-                            rating={item.rating}
-                            releaseYear={item.releaseYear}
-                            isSerie={item.isSerie}
+                            imageURL={item.imageUrl}
+                            rating={10}
+                            releaseYear={item.releaseDate}
+                            isSerie={item.season ? true : false}
                             />
                         ))}
-                        </div>
-                        <h3>Cómedia</h3>
-                        <div className="collection-items">
-                            {items.map((item) => (
-                                <Item
-                                key={item.id}
-                                name={item.name}
-                                ageGroup={item.ageGroup}
-                                duration={item.duration}
-                                season={item.season}
-                                amountEpsodes={item.amountEpsodes}
-                                imageURL={item.imageURL}
-                                rating={item.rating}
-                                releaseYear={item.releaseYear}
-                                isSerie={item.isSerie}
-                                />
-                            ))}
+                        {serie.map((item) => (
+                            <Item
+                            key={item.title}
+                            name={item.title}
+                            ageGroup={item.advisoryRating}
+                            duration={item.duration}
+                            season={item.season}
+                            amountEpsodes={item.amountEpsodes}
+                            imageURL={item.imageUrl}
+                            rating={10}
+                            releaseYear={item.releaseDate}
+                            isSerie={item.season ? true : false}
+                            />
+                        ))}
                         </div>
                     </section>
                 </div>
@@ -70,67 +84,3 @@ export function Home(){
         </Wrapper>
     );
 }
-
-const items = [
-    {
-      id: Math.random(),
-      name: 'House of The Dragon',
-      ageGroup: 16,
-      season: '1',
-      amountEpsodes: 10,
-      imageURL: ASSETS.houseOfTheDragonImg,
-      rating: '8.5',
-      releaseYear: '2022',
-      isSerie: true,
-    },
-    {
-      id: Math.random(),
-      name: 'The Batman',
-      ageGroup: 16,
-      duration: '2h 56m',
-      imageURL: ASSETS.theBatmanImg,
-      rating: '8.5',
-      releaseYear: '2022',
-      isSerie: false,
-    },
-    {
-        id: Math.random(),
-        name: 'The Batman',
-        ageGroup: 16,
-        duration: '2h 56m',
-        imageURL: ASSETS.theBatmanImg,
-        rating: '8.5',
-        releaseYear: '2022',
-        isSerie: false,
-      },
-      {
-        id: Math.random(),
-        name: 'The Batman',
-        ageGroup: 16,
-        duration: '2h 56m',
-        imageURL: ASSETS.theBatmanImg,
-        rating: '8.5',
-        releaseYear: '2022',
-        isSerie: false,
-      },
-      {
-        id: Math.random(),
-        name: 'The Batman',
-        ageGroup: 16,
-        duration: '2h 56m',
-        imageURL: ASSETS.theBatmanImg,
-        rating: '8.5',
-        releaseYear: '2022',
-        isSerie: false,
-      },
-      {
-        id: Math.random(),
-        name: 'The Batman',
-        ageGroup: 16,
-        duration: '2h 56m',
-        imageURL: ASSETS.theBatmanImg,
-        rating: '8.5',
-        releaseYear: '2022',
-        isSerie: false,
-      },
-  ];
