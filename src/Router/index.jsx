@@ -7,6 +7,7 @@ import { SignUp } from "../pages/SignUp";
 import { NotFound } from "../pages/NotFound";
 import { MyList } from "../pages/MyList";
 import { Cart } from "../pages/Cart";
+import { Home } from "../pages/Home";
 
 import { Loading } from "../components/Loading";
 
@@ -74,7 +75,7 @@ export function Router() {
             path="/home"
             element={
               <PrivateRoute>
-                <h1>Home</h1>
+                <Home />
               </PrivateRoute>
             }
           />

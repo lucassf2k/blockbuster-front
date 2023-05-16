@@ -5,6 +5,8 @@ import "./styles.css";
 import { ASSETS } from "../../assets";
 import { RegisterInput } from "../../components/RegisterInput";
 
+import { useNavigate } from "react-router-dom";
+
 export function SignUp() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
@@ -12,6 +14,7 @@ export function SignUp() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
+  const navigate = useNavigate();
 
   const handleSignUp = async (event) => {
     event.preventDefault();
@@ -31,14 +34,16 @@ export function SignUp() {
       return;
     }
 
-    const token = await api.post("signup", {
+    const nascimento = `${day}/${month}/${year}`;
+
+    await api.post("user", {
       nome,
       email,
-      password,
-      day,
-      month,
-      year
+      senha: password,
+      nascimento
     })
+
+    navigate("/signin");
   }
 
   return(
