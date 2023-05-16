@@ -49,7 +49,7 @@ export function useAuth() {
 
     localStorage.setItem("@BLOCKBUSTER:token", JSON.stringify(token));
     localStorage.setItem(
-      "@BLOCAKBUSTER:admin",
+      "@BLOCKBUSTER:admin",
       JSON.stringify(isWordAdminInEmail)
     );
     api.defaults.headers.Authorization = `Bearer ${token}`;
@@ -62,7 +62,7 @@ export function useAuth() {
   function handleLogout() {
     setAuthenticated(false);
     localStorage.removeItem("@BLOCKBUSTER:token");
-    localStorage.remoteItem("@BLOCAKBUSTER:admin");
+    localStorage.removeItem("@BLOCKBUSTER:admin");
     api.defaults.headers.Authorization = undefined;
     navigate("/signin");
   }
