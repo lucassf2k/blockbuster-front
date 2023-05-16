@@ -12,26 +12,26 @@ export function Home(){
     return(
         <Wrapper>
             <SideBar/>
-            <div className="discover">
+            <section className="discover">
+                <div className="search">
 
-                <div className="nav-bar">
-                    <div className="nav-links">
-                        <a href="">Filmes</a>
-                        <a href="">Séries</a>
-                        <a href="">Animes</a>
+                    <div className="nav-bar">
+                        <div className="nav-links">
+                            <a href="">Filmes</a>
+                            <a href="">Séries</a>
+                            <a href="">Animes</a>
+                        </div>
+                        <div className="search-bar">
+                            <input type="text" placeholder="Pesquisar"/>
+                        </div>
                     </div>
-                    <div className="search-bar">
-                        <input type="text" placeholder="Pesquisar"/>
-                    </div>
+
                 </div>
 
-                <div className="highlights">
-
-                </div>
-
-                <div className="collection-details">
-                    <h3 className="gray2">Ação</h3>
-                    <div className="collection-items">
+                <div className="genders">
+                    <section className="collection-details">
+                        <h3>Ação</h3>
+                        <div className="collection-items">
                         {items.map((item) => (
                             <Item
                             key={item.id}
@@ -46,10 +46,27 @@ export function Home(){
                             isSerie={item.isSerie}
                             />
                         ))}
-                    </div>
+                        </div>
+                        <h3>Cómedia</h3>
+                        <div className="collection-items">
+                            {items.map((item) => (
+                                <Item
+                                key={item.id}
+                                name={item.name}
+                                ageGroup={item.ageGroup}
+                                duration={item.duration}
+                                season={item.season}
+                                amountEpsodes={item.amountEpsodes}
+                                imageURL={item.imageURL}
+                                rating={item.rating}
+                                releaseYear={item.releaseYear}
+                                isSerie={item.isSerie}
+                                />
+                            ))}
+                        </div>
+                    </section>
                 </div>
-
-            </div>
+            </section>
         </Wrapper>
     );
 }
@@ -76,4 +93,44 @@ const items = [
       releaseYear: '2022',
       isSerie: false,
     },
+    {
+        id: Math.random(),
+        name: 'The Batman',
+        ageGroup: 16,
+        duration: '2h 56m',
+        imageURL: ASSETS.theBatmanImg,
+        rating: '8.5',
+        releaseYear: '2022',
+        isSerie: false,
+      },
+      {
+        id: Math.random(),
+        name: 'The Batman',
+        ageGroup: 16,
+        duration: '2h 56m',
+        imageURL: ASSETS.theBatmanImg,
+        rating: '8.5',
+        releaseYear: '2022',
+        isSerie: false,
+      },
+      {
+        id: Math.random(),
+        name: 'The Batman',
+        ageGroup: 16,
+        duration: '2h 56m',
+        imageURL: ASSETS.theBatmanImg,
+        rating: '8.5',
+        releaseYear: '2022',
+        isSerie: false,
+      },
+      {
+        id: Math.random(),
+        name: 'The Batman',
+        ageGroup: 16,
+        duration: '2h 56m',
+        imageURL: ASSETS.theBatmanImg,
+        rating: '8.5',
+        releaseYear: '2022',
+        isSerie: false,
+      },
   ];
