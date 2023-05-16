@@ -9,6 +9,7 @@ import { SignUp } from "../pages/SignUp";
 import { NotFound } from "../pages/NotFound";
 import { MyList } from "../pages/MyList";
 import { Cart } from "../pages/Cart";
+import { Home } from "../pages/Home";
 
 import { AuthProvider } from "../Context/AuthContext";
 
@@ -50,6 +51,11 @@ export function Router() {
               </PrivateRoute>
             }
           />
+          <Route path="/home" element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AuthProvider>

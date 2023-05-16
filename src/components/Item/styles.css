@@ -1,0 +1,44 @@
+.item .collection-content .age-group {
+  width: 34px;
+  height: 34px;
+  background-color: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.item .collection-content h5 {
+  margin-top: 16px;
+  font-size: 20px;
+  max-width: 240px;
+}
+
+.item .collection-content .item-details {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.collection-content .item-details .separator-circle {
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--gray1);
+  align-self: center;
+}
+
+.collection-content .item-details p {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.collection-content .item-details p img {
+  width: 32px;
+  height: auto;
+  margin-right: 8px;
+}
