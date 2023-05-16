@@ -36,6 +36,8 @@ function AdminRoute({ children }) {
     return <Loading />;
   }
 
+  console.log({ isAdmin, authenticated });
+
   if (!isAdmin && authenticated) {
     return <Navigate to="/home" replace />;
   }

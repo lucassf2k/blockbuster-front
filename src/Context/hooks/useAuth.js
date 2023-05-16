@@ -12,7 +12,7 @@ export function useAuth() {
 
   useEffect(() => {
     const token = localStorage.getItem("@BLOCKBUSTER:token");
-    const isAdmin = localStorage.getItem("@BLOCAKBUSTER:admin");
+    const isAdmin = localStorage.getItem("@BLOCKBUSTER:admin");
 
     if (token) {
       api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
@@ -34,6 +34,10 @@ export function useAuth() {
     console.log(isWordAdminInEmail);
     if (isWordAdminInEmail) {
       setIsAdmin(true);
+      localStorage.setItem(
+        "@BLOCKBUSTER:admin",
+        JSON.stringify(isWordAdminInEmail)
+      );
     }
 
     const { headers } = await api.post("/login", {
@@ -48,10 +52,6 @@ export function useAuth() {
     if (!token) return;
 
     localStorage.setItem("@BLOCKBUSTER:token", JSON.stringify(token));
-    localStorage.setItem(
-      "@BLOCKBUSTER:admin",
-      JSON.stringify(isWordAdminInEmail)
-    );
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     setAuthenticated(true);
