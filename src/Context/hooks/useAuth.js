@@ -6,21 +6,36 @@ import { api } from "../../services/api";
 export function useAuth() {
   const [authenticated, setAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("@BLOCKBUSTER:token");
+    const isAdmin = localStorage.getItem("@BLOCAKBUSTER:admin");
 
     if (token) {
       api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
       setAuthenticated(true);
     }
 
+    if (Boolean(isAdmin)) {
+      setIsAdmin(true);
+    }
+
     setIsLoading(false);
   }, []);
 
   async function handleLogin({ email, password }) {
+    const splitedEmail = email.split("@");
+    const isWordAdminInEmail = splitedEmail.includes("admin");
+
+    console.log(splitedEmail);
+    console.log(isWordAdminInEmail);
+    if (isWordAdminInEmail) {
+      setIsAdmin(true);
+    }
+
     const { headers } = await api.post("/login", {
       email,
       senha: password,
@@ -33,6 +48,10 @@ export function useAuth() {
     if (!token) return;
 
     localStorage.setItem("@BLOCKBUSTER:token", JSON.stringify(token));
+    localStorage.setItem(
+      "@BLOCAKBUSTER:admin",
+      JSON.stringify(isWordAdminInEmail)
+    );
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     setAuthenticated(true);
@@ -43,9 +62,10 @@ export function useAuth() {
   function handleLogout() {
     setAuthenticated(false);
     localStorage.removeItem("@BLOCKBUSTER:token");
+    localStorage.remoteItem("@BLOCAKBUSTER:admin");
     api.defaults.headers.Authorization = undefined;
     navigate("/signin");
   }
 
-  return { isLoading, authenticated, handleLogin, handleLogout };
+  return { isLoading, authenticated, isAdmin, handleLogin, handleLogout };
 }

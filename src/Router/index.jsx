@@ -26,6 +26,26 @@ function PrivateRoute({ children }) {
   return children;
 }
 
+function AdminRoute({ children }) {
+  const { isLoading, isAdmin, authenticated } = useContext(Context);
+
+  console.log("Router", isAdmin);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (!isAdmin && authenticated) {
+    return <Navigate to="/home" replace />;
+  }
+
+  if (!isAdmin && !authenticated) {
+    return <Navigate to="/signin" replace />;
+  }
+
+  return children;
+}
+
 export function Router() {
   return (
     <BrowserRouter>
@@ -56,6 +76,22 @@ export function Router() {
               <PrivateRoute>
                 <h1>Home</h1>
               </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <AdminRoute>
+                <h1>Dashboad</h1>
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/collection"
+            element={
+              <AdminRoute>
+                <h1>Collection</h1>
+              </AdminRoute>
             }
           />
           <Route path="*" element={<NotFound />} />
