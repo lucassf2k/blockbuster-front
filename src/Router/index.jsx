@@ -8,6 +8,7 @@ import { NotFound } from "../pages/NotFound";
 import { MyList } from "../pages/MyList";
 import { Cart } from "../pages/Cart";
 import { Home } from "../pages/Home";
+import { Minhaconta } from "../pages/Minhaconta";
 
 import { Dashboard } from "../pages/admins/Dashboard";
 
@@ -80,6 +81,14 @@ export function Router() {
             element={
               <PrivateRoute>
                 <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/account"
+            element={
+              <PrivateRoute>
+                <Minhaconta />
               </PrivateRoute>
             }
           />

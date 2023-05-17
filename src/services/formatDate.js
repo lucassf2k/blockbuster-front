@@ -1,6 +1,6 @@
 export function formatDateToBrazil(input) {
   const splitedDate = input.split("-");
-  const [year] = splitedDate;
+  const [year, month, day] = splitedDate;
 
-  return `${year}`;
+  return { year, fullDate: `${day}/${month}/${year}` };
 }

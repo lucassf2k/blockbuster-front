@@ -19,18 +19,18 @@ export function SignUp() {
   const handleSignUp = async (event) => {
     event.preventDefault();
 
-    if(!email || !password){
-      alert("Campos obrigatórios")
+    if (!email || !password) {
+      alert("Campos obrigatórios");
       return;
     }
 
-    if(!email.includes("@")){
-      alert("E-mail inválido")
+    if (!email.includes("@")) {
+      alert("E-mail inválido");
       return;
     }
 
-    if(password.length < 6){
-      alert("Senha deve ter no minímo 6 caracteres")
+    if (password.length < 6) {
+      alert("Senha deve ter no minímo 6 caracteres");
       return;
     }
 
@@ -40,20 +40,19 @@ export function SignUp() {
       nome,
       email,
       senha: password,
-      nascimento
-    })
+      nascimento,
+    });
 
     navigate("/signin");
-  }
+  };
 
-  return(
+  return (
     <div className="body-like">
       <div className="main-register">
-        
         <div className="left-register">
           <img src={ASSETS.logoIcon} alt="logo" />
         </div>
-          
+
         <div className="right-register">
           <div className="card-register">
             <h3>Registrar</h3>
@@ -107,10 +106,15 @@ export function SignUp() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button class="btn-register gray" type="submit" onClick={handleSignUp}>Criar Conta</button>
+            <button
+              className="btn-register gray"
+              type="submit"
+              onClick={handleSignUp}
+            >
+              Criar Conta
+            </button>
           </div>
         </div>
-
       </div>
     </div>
   );

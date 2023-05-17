@@ -19,7 +19,7 @@ export function Item(props) {
         </span>
         <h5>{props.name}</h5>
         <div className="item-details">
-          <p>{formatDateToBrazil(props.releaseYear)}</p>
+          <p>{formatDateToBrazil(props.releaseYear).year}</p>
           <div className="separator-circle"></div>
           {props.isSerie ? (
             <p>{props.season} Temp</p>

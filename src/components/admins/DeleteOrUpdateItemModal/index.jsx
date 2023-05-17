@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Input } from "../../Input";
 import { Button } from "../../Button";
@@ -6,6 +6,7 @@ import { Button } from "../../Button";
 import "./styles.css";
 
 import { api } from "../../../services/api";
+import { formatDateToBrazil } from "../../../services/formatDate";
 
 const OPTIONS_SELECT_INPUT_GENDER = [
   {
@@ -96,6 +97,20 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
 
   const [file, setFile] = useState(null);
 
+  async function loadData() {
+    const { data } = await api.get(`movies/${itemId}`);
+    setTitle(data.title);
+    setReleaseDate(formatDateToBrazil(data.releaseDate).fullDate);
+    setAdvisoryRating(data.advisoryRating);
+    setGender(data.gender);
+    setDuration(data.duration);
+    setPrice(data.price);
+  }
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   function handleChoiceBetweenMovieAndSerie(typeItem) {
     const typeItemIsMovie = typeItem === "serie" ? true : false;
     setIsMovie(typeItemIsMovie);
@@ -108,6 +123,29 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
       onClose();
       window.location.reload();
     };
+  }
+
+  async function handleUpdateItem() {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const responseImageUrl = await api.post("images/upload", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    await api.put("movies", {
+      title,
+      duration: Number(duration),
+      releaseDate,
+      gender: Number(gender),
+      advisoryRating: Number(advisoryRating),
+      imageUrl: responseImageUrl.data,
+      price: Number(price),
+    });
+    onClose();
+    window.location.reload();
   }
 
   return (
@@ -228,7 +266,11 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
           )}
 
           <div className="actions">
-            <Button title="Atualizar" />
+            <Button
+              title="Atualizar"
+              type="button"
+              onClick={handleUpdateItem}
+            />
             <Button
               title="Remover"
               type="button"
