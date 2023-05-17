@@ -37,10 +37,6 @@ export function SideBar({ isAdmin = false }) {
               <img src={ASSETS.myListIcon} alt="Ícone com uma casa" />
               <p>Minha lista</p>
             </Link>
-            <Link to="/favorites">
-              <img src={ASSETS.favoriteIcon} alt="Ícone com uma casa" />
-              <p>Favoritos</p>
-            </Link>
           </>
         )}
       </nav>
