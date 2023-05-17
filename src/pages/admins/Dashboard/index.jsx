@@ -9,18 +9,14 @@ import "../../MyList/styles.css";
 import { api } from "../../../services/api";
 import { AddItemButton } from "../../../components/admins/AddItemButton";
 import { ItemRegisterModal } from "../../../components/admins/ItemRegisterModal";
+import { DeleteOrUpdateItemModal } from "../../../components/admins/DeleteOrUpdateItemModal";
 
 export function Dashboard() {
   const [data, setData] = useState([]);
   const [isOpenItemModal, setIsOpenItemModal] = useState(false);
-
-  function handleOpenModal() {
-    setIsOpenItemModal(true);
-  }
-
-  function handleCloseModal() {
-    setIsOpenItemModal(false);
-  }
+  const [isOpenDeleteOrUpdateModal, setIsOpenDeleteOrUpdateModal] =
+    useState(false);
+  const [itemId, setItemId] = useState("");
 
   async function loadData() {
     const [responseMovies, responseSeries] = await Promise.all([
@@ -35,11 +31,31 @@ export function Dashboard() {
     loadData();
   }, []);
 
+  function handleOpenModal() {
+    setIsOpenItemModal(true);
+  }
+
+  function handleCloseModal() {
+    setIsOpenItemModal(false);
+  }
+
+  function handleToggleDeleteOrUpdateModal(uuid = "") {
+    return () => {
+      setIsOpenDeleteOrUpdateModal((prevState) => !prevState);
+      setItemId(uuid);
+    };
+  }
+
   return (
     <Wrapper>
       <SideBar isAdmin />
 
       <ItemRegisterModal isOpen={isOpenItemModal} onClose={handleCloseModal} />
+      <DeleteOrUpdateItemModal
+        isOpen={isOpenDeleteOrUpdateModal}
+        itemId={itemId}
+        onClose={handleToggleDeleteOrUpdateModal}
+      />
 
       <section className="collection-details">
         <h2>Acervo</h2>
@@ -57,6 +73,7 @@ export function Dashboard() {
                 rating={10}
                 releaseYear={item.releaseDate}
                 isSerie={item.duration ? false : true}
+                onFunction={handleToggleDeleteOrUpdateModal(item.uuid)}
               />
             ))}
 

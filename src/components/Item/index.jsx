@@ -6,7 +6,7 @@ import { converAdvisoryRatingForPortuguese } from "../../services/convetAdvisory
 export function Item(props) {
   const ageGroupOptions = converAdvisoryRatingForPortuguese(props.ageGroup);
   return (
-    <div className="item">
+    <button className="item" onClick={props.onFunction}>
       <img src={props.imageURL} alt={props.title} />
       <div className="collection-content">
         <span
@@ -27,6 +27,6 @@ export function Item(props) {
           </p>
         </div>
       </div>
-    </div>
+    </button>
   );
 }
