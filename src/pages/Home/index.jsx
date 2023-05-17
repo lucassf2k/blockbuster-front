@@ -22,6 +22,18 @@ export function Home(){
         setSerie(responseSerie.data);
     }
 
+    async function insertToList(item){
+        const userEmail = localStorage.getItem("@BLOCKBUSTER:email");
+        const movieTitle = [item.title];
+
+        console.log(movieTitle);
+        
+        await api.patch("user/my_list/movies", {
+            email: userEmail,
+            movieTitle
+        });
+    }
+
     useEffect(() => {
         loadMovie();
     },[])
@@ -61,6 +73,7 @@ export function Home(){
                             rating={10}
                             releaseYear={item.releaseDate}
                             isSerie={item.season ? true : false}
+                            onFunction={() => insertToList(item)}
                             />
                         ))}
                         {serie.map((item) => (

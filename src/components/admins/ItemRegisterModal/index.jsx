@@ -81,7 +81,7 @@ const OPTIONS_SELECT_ADVISORY_RATING = [
   },
   {
     value: 5,
-    label: "Maiores de 20 anos",
+    label: "Maiores de 18 anos",
   },
 ];
 

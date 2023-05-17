@@ -52,6 +52,7 @@ export function useAuth() {
     if (!token) return;
 
     localStorage.setItem("@BLOCKBUSTER:token", JSON.stringify(token));
+    localStorage.setItem("@BLOCKBUSTER:email", email);
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     setAuthenticated(true);
@@ -63,6 +64,7 @@ export function useAuth() {
     setAuthenticated(false);
     localStorage.removeItem("@BLOCKBUSTER:token");
     localStorage.removeItem("@BLOCKBUSTER:admin");
+    localStorage.removeItem("@BLOCKBUSTER:email");
     api.defaults.headers.Authorization = undefined;
     navigate("/signin");
   }
