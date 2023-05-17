@@ -1,12 +1,20 @@
 import "./styles.css";
 import { ASSETS } from "../../assets";
 
+import { converAdvisoryRatingForPortuguese } from "../../services/convetAdvisoryRating";
+
 export function Item(props) {
+  const ageGroupOptions = converAdvisoryRatingForPortuguese(props.ageGroup);
   return (
     <div className="item">
       <img src={props.imageURL} alt={props.title} />
       <div className="collection-content">
-        <span className="age-group">{props.ageGroup}</span>
+        <span
+          className="age-group"
+          style={{ background: ageGroupOptions.color }}
+        >
+          {ageGroupOptions.valueInPortuguese}
+        </span>
         <h5>{props.name}</h5>
         <div className="item-details">
           <p>{props.releaseYear}</p>

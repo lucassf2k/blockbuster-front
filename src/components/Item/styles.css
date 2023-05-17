@@ -41,7 +41,6 @@
 .item .collection-content .age-group {
   width: 34px;
   height: 34px;
-  background-color: var(--yellow);
   display: flex;
   align-items: center;
   justify-content: center;

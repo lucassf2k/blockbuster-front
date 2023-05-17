@@ -7,7 +7,7 @@ import { Button } from "../../Button";
 
 import { api } from "../../../services/api";
 
-const OPTIONS_SELECT_INPUT = [
+const OPTIONS_SELECT_INPUT_GENDER = [
   {
     value: 0,
     label: "Ação",
@@ -221,7 +221,7 @@ export function ItemRegisterModal({ isOpen, onClose }) {
               value={gender}
               onChange={(event) => setGender(event.target.value)}
             >
-              {OPTIONS_SELECT_INPUT.map((option) => (
+              {OPTIONS_SELECT_INPUT_GENDER.map((option) => (
                 <option value={option.value}>{option.label}</option>
               ))}
             </select>
