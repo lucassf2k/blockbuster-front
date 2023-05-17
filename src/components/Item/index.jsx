@@ -2,6 +2,8 @@ import "./styles.css";
 import { ASSETS } from "../../assets";
 
 import { converAdvisoryRatingForPortuguese } from "../../services/convetAdvisoryRating";
+import { formatDateToBrazil } from "../../services/formatDate";
+import { formateDuration } from "../../services/formatDuration";
 
 export function Item(props) {
   const ageGroupOptions = converAdvisoryRatingForPortuguese(props.ageGroup);
@@ -17,9 +19,13 @@ export function Item(props) {
         </span>
         <h5>{props.name}</h5>
         <div className="item-details">
-          <p>{props.releaseYear}</p>
+          <p>{formatDateToBrazil(props.releaseYear)}</p>
           <div className="separator-circle"></div>
-          {props.isSerie ? <p>{props.season} Temp</p> : <p>{props.duration}</p>}
+          {props.isSerie ? (
+            <p>{props.season} Temp</p>
+          ) : (
+            <p>{formateDuration(props.duration)}</p>
+          )}
           <div className="separator-circle"></div>
           <p>
             <img src={ASSETS.imgbLogoImg} alt="Imdb logomarca" />
