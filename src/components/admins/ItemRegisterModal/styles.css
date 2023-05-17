@@ -71,7 +71,7 @@
 
 .contentItemRegisterModal form {
   overflow-y: scroll;
-  max-height: 480px;
+  max-height: 380px;
   padding: 8px;
 }
 

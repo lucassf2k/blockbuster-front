@@ -87,11 +87,12 @@ export function ItemRegisterModal({ isOpen, onClose }) {
   const [releaseDate, setReleaseDate] = useState("");
   const [gender, setGender] = useState("");
   const [advisoryRating, setAdvisoryRating] = useState("");
+  const [price, setPrice] = useState("");
 
   const [seasonNumber, setSeasonNumber] = useState("");
   const [numberOfEpsodes, setNumberOfEpsodes] = useState(0);
   const [episodeNumber, setEpisodeNumber] = useState("");
-  const [duration, setDuration] = useState(0);
+  const [duration, setDuration] = useState("");
 
   const [file, setFile] = useState(null);
 
@@ -100,8 +101,49 @@ export function ItemRegisterModal({ isOpen, onClose }) {
     setIsMovie(typeItemIsMovie);
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+
+    if (!isMovie) {
+      if (
+        !title ||
+        !gender ||
+        !advisoryRating ||
+        !duration ||
+        !releaseDate ||
+        !file
+      ) {
+        alert("Por favor. Preencha todos os dados!");
+        return;
+      }
+    } else {
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const responseImageUrl = await api.post("/images/upload", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    if (!(responseImageUrl.status === 200)) {
+      alert(
+        "Desculpe, deu algum erro. Tente novamente mais tarde ou pode ser que a imagem que você tentou 'subir' seja muito grande"
+      );
+      return;
+    }
+
+    await api.post("/movies", {
+      title,
+      duration: Number(duration),
+      releaseDate,
+      gender: Number(gender),
+      advisoryRating: Number(advisoryRating),
+      imageUrl: responseImageUrl.data,
+      price: Number(price),
+    });
   }
 
   return (
@@ -164,7 +206,10 @@ export function ItemRegisterModal({ isOpen, onClose }) {
           />
           <div className="inputSelect">
             <label htmlFor="advisoryRating">Classificação indicativa</label>
-            <select>
+            <select
+              value={advisoryRating}
+              onChange={(event) => setAdvisoryRating(event.target.value)}
+            >
               {OPTIONS_SELECT_ADVISORY_RATING.map((option) => (
                 <option value={option.value}>{option.label}</option>
               ))}
@@ -172,7 +217,10 @@ export function ItemRegisterModal({ isOpen, onClose }) {
           </div>
           <div className="inputSelect">
             <label htmlFor="gender">Gênero</label>
-            <select>
+            <select
+              value={gender}
+              onChange={(event) => setGender(event.target.value)}
+            >
               {OPTIONS_SELECT_INPUT.map((option) => (
                 <option value={option.value}>{option.label}</option>
               ))}
@@ -184,6 +232,13 @@ export function ItemRegisterModal({ isOpen, onClose }) {
             placeholder="em minutos..."
             value={duration}
             onChange={(event) => setDuration(event.target.value)}
+          />
+          <Input
+            label="Preço"
+            id="price"
+            placeholder="145.5"
+            value={price}
+            onChange={(event) => setPrice(event.target.value)}
           />
           {isMovie && (
             <>
