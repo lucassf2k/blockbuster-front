@@ -9,6 +9,10 @@ import { api } from "../../../services/api";
 
 const OPTIONS_SELECT_INPUT_GENDER = [
   {
+    value: Math.random(),
+    label: "Escolha uma opção",
+  },
+  {
     value: 0,
     label: "Ação",
   },
@@ -51,6 +55,10 @@ const OPTIONS_SELECT_INPUT_GENDER = [
 ];
 
 const OPTIONS_SELECT_ADVISORY_RATING = [
+  {
+    value: Math.random(),
+    label: "Escolha uma opção",
+  },
   {
     value: 0,
     label: "Livre",
@@ -114,6 +122,14 @@ export function ItemRegisterModal({ isOpen, onClose }) {
         !file
       ) {
         alert("Por favor. Preencha todos os dados!");
+        console.log({
+          title,
+          gender,
+          advisoryRating,
+          duration,
+          releaseDate,
+          file,
+        });
         return;
       }
     } else {
@@ -144,6 +160,10 @@ export function ItemRegisterModal({ isOpen, onClose }) {
       imageUrl: responseImageUrl.data,
       price: Number(price),
     });
+
+    alert("Cadastrado com sucesso!");
+    onClose();
+    window.location.reload();
   }
 
   return (
@@ -211,7 +231,9 @@ export function ItemRegisterModal({ isOpen, onClose }) {
               onChange={(event) => setAdvisoryRating(event.target.value)}
             >
               {OPTIONS_SELECT_ADVISORY_RATING.map((option) => (
-                <option value={option.value}>{option.label}</option>
+                <option key={option.label} value={option.value}>
+                  {option.label}
+                </option>
               ))}
             </select>
           </div>
@@ -222,7 +244,9 @@ export function ItemRegisterModal({ isOpen, onClose }) {
               onChange={(event) => setGender(event.target.value)}
             >
               {OPTIONS_SELECT_INPUT_GENDER.map((option) => (
-                <option value={option.value}>{option.label}</option>
+                <option key={option.label} value={option.value}>
+                  {option.label}
+                </option>
               ))}
             </select>
           </div>
