@@ -9,6 +9,8 @@ import { MyList } from "../pages/MyList";
 import { Cart } from "../pages/Cart";
 import { Home } from "../pages/Home";
 
+import { Dashboard } from "../pages/admins/Dashboard";
+
 import { Loading } from "../components/Loading";
 
 import { AuthProvider, Context } from "../Context/AuthContext";
@@ -85,15 +87,7 @@ export function Router() {
             path="/admin/dashboard"
             element={
               <AdminRoute>
-                <h1>Dashboad</h1>
-              </AdminRoute>
-            }
-          />
-          <Route
-            path="/admin/collection"
-            element={
-              <AdminRoute>
-                <h1>Collection</h1>
+                <Dashboard />
               </AdminRoute>
             }
           />

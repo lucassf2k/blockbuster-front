@@ -18,43 +18,6 @@
   padding: 8px;
 }
 
-.collection-items .item {
-  max-width: 256px;
-  max-height: 256px;
-  width: auto;
-  height: auto;
-  position: relative;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.collection-items .item:hover {
-  transition: all ease-in-out 0.2s;
-  scale: 105%;
-}
-
-.collection-items .item img {
-  width: 256px;
-  height: 256px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.collection-items .item .collection-content {
-  position: absolute;
-  z-index: 2;
-  background: linear-gradient(0deg, rgba(33, 27, 41, 0.48), rgba(33, 27, 41, 0.48));
-  border-radius: 8px;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  padding: 16px;
-}
-
 .item .collection-content .age-group {
   width: 34px;
   height: 34px;
