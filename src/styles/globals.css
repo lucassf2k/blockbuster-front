@@ -1,11 +1,11 @@
 :root {
-  --black1: #1A161F;
-  --black2: #322A3D;
-  --black3: #6C627A;
-  --primary: #8931F5;
-  --gray1: #F9F5FF;
-  --gray2: #9E92AD;
-  --yellow: #FFCC17;
+  --black1: #1a161f;
+  --black2: #322a3d;
+  --black3: #6c627a;
+  --primary: #8931f5;
+  --gray1: #f9f5ff;
+  --gray2: #9e92ad;
+  --yellow: #ffcc17;
 }
 
 ::-webkit-scrollbar {
@@ -27,14 +27,17 @@
   -webkit-box-sizing: border-box;
 }
 
-body, #root {
-  font-family: 'Inter', sans-serif;
+body,
+#root {
+  font-family: "Inter", sans-serif;
   background: var(--black1);
   color: var(--gray1);
 }
 
-input, button, textarea {
-  font-family: 'Inter', sans-serif;
+input,
+button,
+textarea {
+  font-family: "Inter", sans-serif;
 }
 
 fieldset {
@@ -44,6 +47,7 @@ fieldset {
 button {
   cursor: pointer;
   border: 0;
+  font-size: 16px;
 }
 
 a {
@@ -57,7 +61,7 @@ a:hover {
   filter: brightness(0.9);
 }
 
-@media(max-width: 700px) {
+@media (max-width: 700px) {
   #root {
     display: flex;
     flex-direction: column;
