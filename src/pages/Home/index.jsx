@@ -36,11 +36,13 @@ export function Home() {
           email: userEmail,
           serieTitle: movieTitle,
         });
+        alert('Adiciona no "Minha Lista" com sucesso');
       } else {
         await api.patch("user/my_list/movies", {
           email: userEmail,
           movieTitle,
         });
+        alert('Adiciona no "Minha Lista" com sucesso');
       }
     } catch (err) {
       console.log(err);
