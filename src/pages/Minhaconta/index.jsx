@@ -7,10 +7,10 @@ import {Wrapper} from "../../components/Wrapper"
 
 export function Minhaconta (){
     const [user, setUser] = useState({});
-    const {handleLogout} = useContext(Context);    
-    
+    const {handleLogout} = useContext(Context);
+
     async function loadUser() {
-      const email = localStorage.getItem("@BLOCKBUSTER:email")     
+      const email = localStorage.getItem("@BLOCKBUSTER:email")
       try {
         const {data} = await api.get(`user/email/${email}`);
         setUser(data);
@@ -20,13 +20,13 @@ export function Minhaconta (){
     }
 
     async function apagarUsuario(){
-        const email = localStorage.getItem("@BLOCKBUSTER:email")   
+        const email = localStorage.getItem("@BLOCKBUSTER:email")
         try {
-          await api.delete(`user/${email}`);    
+          await api.delete(`user/${email}`);
           handleLogout();
         } catch (err) {
           console.log(err);
-        } 
+        }
     }
 
    useEffect(() => {
@@ -50,12 +50,12 @@ export function Minhaconta (){
 
             <div className="form">
 
-                <form method="" action="">                    
+                <form method="" action="">
                     <button className="btn excluir" type="button" onClick={apagarUsuario}>Excluir conta</button>
                 </form>
 
             </div>
-             </div>    
+             </div>
 
         </Wrapper>
     )
