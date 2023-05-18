@@ -36,7 +36,7 @@ export function Home() {
       if (isSerie) {
         await api.patch("user/my_list/series", {
           email: userEmail,
-          movieTitle,
+          serieTitle: movieTitle,
         });
       } else {
         await api.patch("user/my_list/movies", {
@@ -85,9 +85,9 @@ export function Home() {
                   imageURL={item.imageUrl}
                   rating={10}
                   releaseYear={item.releaseDate}
-                  isSerie={item.season ? true : false}
+                  isSerie={false}
                   onFunction={() =>
-                    insertToList(item, item.season ? true : false)
+                    insertToList(item, false)
                   }
                 />
               ))}
@@ -102,9 +102,9 @@ export function Home() {
                   imageURL={item.imageUrl}
                   rating={10}
                   releaseYear={item.releaseDate}
-                  isSerie={item.season ? true : false}
+                  isSerie={true}
                   onFunction={() =>
-                    insertToList(item, item.season ? true : false)
+                    insertToList(item, true)
                   }
                 />
               ))}
