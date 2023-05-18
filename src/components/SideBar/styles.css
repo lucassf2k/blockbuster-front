@@ -29,6 +29,10 @@
   margin-right: 16px;
 }
 
+.nav footer {
+  margin-left: 0;
+}
+
 .nav footer a,
 .nav footer button {
   display: flex;
