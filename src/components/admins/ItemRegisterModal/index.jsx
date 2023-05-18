@@ -172,7 +172,7 @@ export function ItemRegisterModal({ isOpen, onClose }) {
       try {
         const seasons = [
           {
-            seasonNumber: 0,
+            seasonNumber: Number(seasonNumber),
             episodes: [
               {
                 title: "",
@@ -299,6 +299,16 @@ export function ItemRegisterModal({ isOpen, onClose }) {
             value={price}
             onChange={(event) => setPrice(event.target.value)}
           />
+
+          {isMovie && (
+            <Input
+              label="Quantidade de Temporadas"
+              id="seasonNumber"
+              placeholder="1"
+              value={seasonNumber}
+              onChange={(event) => setSeasonNumber(event.target.value)}
+            />
+          )}
           <Button title="Confirmar" />
         </form>
       </div>

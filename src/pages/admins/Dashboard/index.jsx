@@ -74,7 +74,7 @@ export function Dashboard() {
                 name={item.title}
                 ageGroup={item.advisoryRating}
                 duration={item.duration}
-                season={item.season}
+                season={"?"}
                 amountEpsodes={item.amountEpsodes}
                 imageURL={item.imageUrl}
                 rating={10}

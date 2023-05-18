@@ -26,17 +26,24 @@ export function Home() {
     }
   }
 
-  async function insertToList(item) {
+  async function insertToList(item, isSerie) {
     const userEmail = localStorage.getItem("@BLOCKBUSTER:email");
     const movieTitle = [item.title];
 
     console.log(movieTitle);
 
     try {
-      await api.patch("user/my_list/movies", {
-        email: userEmail,
-        movieTitle,
-      });
+      if (isSerie) {
+        await api.patch("user/my_list/series", {
+          email: userEmail,
+          movieTitle,
+        });
+      } else {
+        await api.patch("user/my_list/movies", {
+          email: userEmail,
+          movieTitle,
+        });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -79,7 +86,9 @@ export function Home() {
                   rating={10}
                   releaseYear={item.releaseDate}
                   isSerie={item.season ? true : false}
-                  onFunction={() => insertToList(item)}
+                  onFunction={() =>
+                    insertToList(item, item.season ? true : false)
+                  }
                 />
               ))}
               {serie.map((item) => (
@@ -94,6 +103,9 @@ export function Home() {
                   rating={10}
                   releaseYear={item.releaseDate}
                   isSerie={item.season ? true : false}
+                  onFunction={() =>
+                    insertToList(item, item.season ? true : false)
+                  }
                 />
               ))}
             </div>
