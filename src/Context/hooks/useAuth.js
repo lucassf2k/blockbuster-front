@@ -40,24 +40,28 @@ export function useAuth() {
       );
     }
 
-    const { headers } = await api.post("/login", {
-      email,
-      senha: password,
-    });
+    try {
+      const { headers } = await api.post("/login", {
+        email,
+        senha: password,
+      });
 
-    const authorization = headers.authorization;
+      const authorization = headers.authorization;
 
-    const [, token] = authorization.split(" ");
+      const [, token] = authorization.split(" ");
 
-    if (!token) return;
+      if (!token) return;
 
-    localStorage.setItem("@BLOCKBUSTER:token", JSON.stringify(token));
-    localStorage.setItem("@BLOCKBUSTER:email", email);
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+      localStorage.setItem("@BLOCKBUSTER:token", JSON.stringify(token));
+      localStorage.setItem("@BLOCKBUSTER:email", email);
+      api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    setAuthenticated(true);
+      setAuthenticated(true);
 
-    navigate("/home");
+      navigate("/home");
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   function handleLogout() {

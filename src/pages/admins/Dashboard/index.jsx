@@ -19,12 +19,16 @@ export function Dashboard() {
   const [itemId, setItemId] = useState("");
 
   async function loadData() {
-    const [responseMovies, responseSeries] = await Promise.all([
-      api.get("/movies"),
-      api.get("/series"),
-    ]);
+    try {
+      const [responseMovies, responseSeries] = await Promise.all([
+        api.get("/movies"),
+        api.get("/series"),
+      ]);
 
-    setData([...responseMovies.data, ...responseSeries.data]);
+      setData([...responseMovies.data, ...responseSeries.data]);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {

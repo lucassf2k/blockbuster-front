@@ -11,14 +11,22 @@ export function Minhaconta (){
     
     async function loadUser() {
       const email = localStorage.getItem("@BLOCKBUSTER:email")     
-      const {data} = await api.get(`user/email/${email}`);
-      setUser(data);
+      try {
+        const {data} = await api.get(`user/email/${email}`);
+        setUser(data);
+      } catch (err) {
+        console.log(err);
+      }
     }
 
     async function apagarUsuario(){
-        const email = localStorage.getItem("@BLOCKBUSTER:email")        
-        await api.delete(`user/${email}`);    
-        handleLogout();
+        const email = localStorage.getItem("@BLOCKBUSTER:email")   
+        try {
+          await api.delete(`user/${email}`);    
+          handleLogout();
+        } catch (err) {
+          console.log(err);
+        } 
     }
 
    useEffect(() => {

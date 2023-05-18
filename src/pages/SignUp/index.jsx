@@ -36,14 +36,18 @@ export function SignUp() {
 
     const nascimento = `${day}/${month}/${year}`;
 
-    await api.post("user", {
-      nome,
-      email,
-      senha: password,
-      nascimento,
-    });
-
-    navigate("/signin");
+    try {
+      await api.post("user", {
+        nome,
+        email,
+        senha: password,
+        nascimento,
+      });
+  
+      navigate("/signin");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

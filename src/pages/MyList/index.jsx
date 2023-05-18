@@ -15,9 +15,13 @@ export function MyList() {
 
   async function loadList(){
     const userEmail = localStorage.getItem("@BLOCKBUSTER:email");
-    const userData = await api.get(`user/email/${userEmail}`);
-    setMovie(userData.data.lista.movie);
-    setSerie(userData.data.lista.serie);
+    try {
+      const userData = await api.get(`user/email/${userEmail}`);
+      setMovie(userData.data.lista.movie);
+      setSerie(userData.data.lista.serie);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {

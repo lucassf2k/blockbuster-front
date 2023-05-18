@@ -98,13 +98,17 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
   const [file, setFile] = useState(null);
 
   async function loadData() {
-    const { data } = await api.get(`movies/${itemId}`);
-    setTitle(data.title);
-    setReleaseDate(formatDateToBrazil(data.releaseDate).fullDate);
-    setAdvisoryRating(data.advisoryRating);
-    setGender(data.gender);
-    setDuration(data.duration);
-    setPrice(data.price);
+    try {
+      const { data } = await api.get(`movies/${itemId}`);
+      setTitle(data.title);
+      setReleaseDate(formatDateToBrazil(data.releaseDate).fullDate);
+      setAdvisoryRating(data.advisoryRating);
+      setGender(data.gender);
+      setDuration(data.duration);
+      setPrice(data.price);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {
@@ -118,14 +122,18 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
 
   function handleDeleteItem(id) {
     return async () => {
-      await api.delete(`/movies/${id}`);
-      alert("Removido com sucesso!");
-      onClose();
-      window.location.reload();
+      try {
+        await api.delete(`/movies/${id}`);
+        alert("Removido com sucesso!");
+        onClose();
+        window.location.reload();
+      } catch (err) {
+        console.log(err);
+      }
     };
   }
 
-  async function handleUpdateItem() {
+  async function handleUpdateItem(id) {
     const formData = new FormData();
     formData.append("file", file);
 
@@ -135,17 +143,22 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
       },
     });
 
-    await api.put("movies", {
-      title,
-      duration: Number(duration),
-      releaseDate,
-      gender: Number(gender),
-      advisoryRating: Number(advisoryRating),
-      imageUrl: responseImageUrl.data,
-      price: Number(price),
-    });
-    onClose();
-    window.location.reload();
+    try {
+      await api.put("movies", {
+        title,
+        duration: Number(duration),
+        releaseDate,
+        gender: Number(gender),
+        advisoryRating: Number(advisoryRating),
+        imageUrl: responseImageUrl.data,
+        uuid: id,
+        price: Number(price),
+      });
+      onClose();
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
@@ -269,7 +282,7 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
             <Button
               title="Atualizar"
               type="button"
-              onClick={handleUpdateItem}
+              onClick={() => handleUpdateItem(itemId)}
             />
             <Button
               title="Remover"

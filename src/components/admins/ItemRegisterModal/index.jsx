@@ -138,32 +138,36 @@ export function ItemRegisterModal({ isOpen, onClose }) {
     const formData = new FormData();
     formData.append("file", file);
 
-    const responseImageUrl = await api.post("/images/upload", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    try {
+      const responseImageUrl = await api.post("/images/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
-    if (!(responseImageUrl.status === 200)) {
-      alert(
-        "Desculpe, deu algum erro. Tente novamente mais tarde ou pode ser que a imagem que você tentou 'subir' seja muito grande"
-      );
-      return;
+      if (!(responseImageUrl.status === 200)) {
+        alert(
+          "Desculpe, deu algum erro. Tente novamente mais tarde ou pode ser que a imagem que você tentou 'subir' seja muito grande"
+        );
+        return;
+      }
+
+      await api.post("/movies", {
+        title,
+        duration: Number(duration),
+        releaseDate,
+        gender: Number(gender),
+        advisoryRating: Number(advisoryRating),
+        imageUrl: responseImageUrl.data,
+        price: Number(price),
+      });
+
+      alert("Cadastrado com sucesso!");
+      onClose();
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
     }
-
-    await api.post("/movies", {
-      title,
-      duration: Number(duration),
-      releaseDate,
-      gender: Number(gender),
-      advisoryRating: Number(advisoryRating),
-      imageUrl: responseImageUrl.data,
-      price: Number(price),
-    });
-
-    alert("Cadastrado com sucesso!");
-    onClose();
-    window.location.reload();
   }
 
   return (
