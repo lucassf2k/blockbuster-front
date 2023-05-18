@@ -30,8 +30,6 @@ export function useAuth() {
     const splitedEmail = email.split("@");
     const isWordAdminInEmail = splitedEmail.includes("admin");
 
-    console.log(splitedEmail);
-    console.log(isWordAdminInEmail);
     if (isWordAdminInEmail) {
       setIsAdmin(true);
       localStorage.setItem(
@@ -60,6 +58,7 @@ export function useAuth() {
 
       navigate("/home");
     } catch (err) {
+      alert("E-mail ou senha incorretas");
       console.log(err);
     }
   }
