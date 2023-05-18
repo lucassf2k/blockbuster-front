@@ -17,6 +17,7 @@ export function Dashboard() {
   const [isOpenDeleteOrUpdateModal, setIsOpenDeleteOrUpdateModal] =
     useState(false);
   const [itemId, setItemId] = useState("");
+  const [isSerieState, setIsSerieState] = useState(false);
 
   async function loadData() {
     try {
@@ -43,10 +44,11 @@ export function Dashboard() {
     setIsOpenItemModal(false);
   }
 
-  function handleToggleDeleteOrUpdateModal(uuid = "") {
+  function handleToggleDeleteOrUpdateModal(isSerie, uuid = "") {
     return () => {
       setIsOpenDeleteOrUpdateModal((prevState) => !prevState);
       setItemId(uuid);
+      setIsSerieState(isSerie);
     };
   }
 
@@ -58,6 +60,7 @@ export function Dashboard() {
       <DeleteOrUpdateItemModal
         isOpen={isOpenDeleteOrUpdateModal}
         itemId={itemId}
+        isSerie={isSerieState}
         onClose={handleToggleDeleteOrUpdateModal}
       />
 
@@ -77,7 +80,10 @@ export function Dashboard() {
                 rating={10}
                 releaseYear={item.releaseDate}
                 isSerie={item.duration ? false : true}
-                onFunction={handleToggleDeleteOrUpdateModal(item.uuid)}
+                onFunction={handleToggleDeleteOrUpdateModal(
+                  item.duration ? false : true,
+                  item.uuid
+                )}
               />
             ))}
 

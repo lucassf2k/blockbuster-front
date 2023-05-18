@@ -78,7 +78,7 @@ const OPTIONS_SELECT_ADVISORY_RATING = [
   },
 ];
 
-export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
+export function DeleteOrUpdateItemModal({ isOpen, itemId, isSerie, onClose }) {
   if (!isOpen) {
     return <></>;
   }
@@ -99,13 +99,23 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
 
   async function loadData() {
     try {
-      const { data } = await api.get(`movies/${itemId}`);
-      setTitle(data.title);
-      setReleaseDate(formatDateToBrazil(data.releaseDate).fullDate);
-      setAdvisoryRating(data.advisoryRating);
-      setGender(data.gender);
-      setDuration(data.duration);
-      setPrice(data.price);
+      if (isSerie) {
+        const { data } = await api.get(`series/get_By_Id/${itemId}`);
+        setTitle(data.title);
+        setReleaseDate(formatDateToBrazil(data.releaseDate).fullDate);
+        setAdvisoryRating(data.advisoryRating);
+        setGender(data.gender);
+        setDuration(data.seasons[0].episodes[0].duration);
+        setPrice(data.price);
+      } else {
+        const { data } = await api.get(`movies/${itemId}`);
+        setTitle(data.title);
+        setReleaseDate(formatDateToBrazil(data.releaseDate).fullDate);
+        setAdvisoryRating(data.advisoryRating);
+        setGender(data.gender);
+        setDuration(data.duration);
+        setPrice(data.price);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -123,10 +133,17 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
   function handleDeleteItem(id) {
     return async () => {
       try {
-        await api.delete(`/movies/${id}`);
-        alert("Removido com sucesso!");
-        onClose();
-        window.location.reload();
+        if (isSerie) {
+          await api.delete(`series/${id}`);
+          alert("Removido com sucesso!");
+          onClose();
+          window.location.reload();
+        } else {
+          await api.delete(`movies/${id}`);
+          alert("Removido com sucesso!");
+          onClose();
+          window.location.reload();
+        }
       } catch (err) {
         console.log(err);
       }
@@ -142,22 +159,47 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
         "Content-Type": "multipart/form-data",
       },
     });
-
-    try {
-      await api.put("movies", {
-        title,
-        duration: Number(duration),
-        releaseDate,
-        gender: Number(gender),
-        advisoryRating: Number(advisoryRating),
-        imageUrl: responseImageUrl.data,
-        uuid: id,
-        price: Number(price),
-      });
-      onClose();
-      window.location.reload();
-    } catch (err) {
-      console.log(err);
+    if (!isMovie) {
+      try {
+        await api.put("/movies", {
+          title,
+          duration: Number(duration),
+          releaseDate,
+          gender: Number(gender),
+          advisoryRating: Number(advisoryRating),
+          imageUrl: responseImageUrl.data,
+          uuid: id,
+          price: Number(price),
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      try {
+        const seasons = [
+          {
+            seasonNumber: 0,
+            episodes: [
+              {
+                title: "",
+                duration: 0,
+                episodeNumber: 0,
+              },
+            ],
+          },
+        ];
+        await api.put("series", {
+          title,
+          releaseDate,
+          gender: Number(gender),
+          advisoryRating: Number(advisoryRating),
+          imageUrl: responseImageUrl.data,
+          seasons: seasons,
+          price: Number(price),
+        });
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 
@@ -175,7 +217,7 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
         <div className="choice">
           <button
             style={
-              isMovie
+              isSerie
                 ? null
                 : { background: "var(--primary)", color: "var(--gray1)" }
             }
@@ -186,7 +228,7 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
           </button>
           <button
             style={
-              isMovie
+              isSerie
                 ? { background: "var(--primary)", color: "var(--gray1)" }
                 : null
             }
@@ -259,25 +301,6 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, onClose }) {
             value={price}
             onChange={(event) => setPrice(event.target.value)}
           />
-          {isMovie && (
-            <>
-              <Input
-                label="Temporada"
-                id="seasonEpisode"
-                placeholder="1"
-                value={seasonNumber}
-                onChange={(event) => setSeasonNumber(event.target.value)}
-              />
-              <Input
-                label="Quantidade de epsódios"
-                id="numberEpsodes"
-                placeholder="10"
-                value={numberOfEpsodes}
-                onChange={(event) => setNumberOfEpsodes(event.target.value)}
-              />
-            </>
-          )}
-
           <div className="actions">
             <Button
               title="Atualizar"

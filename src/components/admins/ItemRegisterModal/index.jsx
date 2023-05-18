@@ -122,52 +122,83 @@ export function ItemRegisterModal({ isOpen, onClose }) {
         !file
       ) {
         alert("Por favor. Preencha todos os dados!");
-        console.log({
-          title,
-          gender,
-          advisoryRating,
-          duration,
-          releaseDate,
-          file,
-        });
         return;
       }
     } else {
+      if (
+        !title ||
+        !gender ||
+        !advisoryRating ||
+        !duration ||
+        !releaseDate ||
+        !file
+      ) {
+        alert("Por favor. Preencha todos os dados!");
+        return;
+      }
     }
 
     const formData = new FormData();
     formData.append("file", file);
 
-    try {
-      const responseImageUrl = await api.post("/images/upload", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+    const responseImageUrl = await api.post("/images/upload", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
-      if (!(responseImageUrl.status === 200)) {
-        alert(
-          "Desculpe, deu algum erro. Tente novamente mais tarde ou pode ser que a imagem que você tentou 'subir' seja muito grande"
-        );
-        return;
-      }
-
-      await api.post("/movies", {
-        title,
-        duration: Number(duration),
-        releaseDate,
-        gender: Number(gender),
-        advisoryRating: Number(advisoryRating),
-        imageUrl: responseImageUrl.data,
-        price: Number(price),
-      });
-
-      alert("Cadastrado com sucesso!");
-      onClose();
-      window.location.reload();
-    } catch (err) {
-      console.log(err);
+    if (!(responseImageUrl.status === 200)) {
+      alert(
+        "Desculpe, deu algum erro. Tente novamente mais tarde ou pode ser que a imagem que você tentou 'subir' seja muito grande"
+      );
+      return;
     }
+
+    if (!isMovie) {
+      try {
+        await api.post("/movies", {
+          title,
+          duration: Number(duration),
+          releaseDate,
+          gender: Number(gender),
+          advisoryRating: Number(advisoryRating),
+          imageUrl: responseImageUrl.data,
+          price: Number(price),
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      try {
+        const seasons = [
+          {
+            seasonNumber: 0,
+            episodes: [
+              {
+                title: "",
+                duration: 0,
+                episodeNumber: 0,
+              },
+            ],
+          },
+        ];
+        await api.post("series", {
+          title,
+          releaseDate,
+          gender: Number(gender),
+          advisoryRating: Number(advisoryRating),
+          imageUrl: responseImageUrl.data,
+          price: Number(price),
+          seasons: seasons,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    alert("Cadastrado com sucesso!");
+    onClose();
+    window.location.reload();
   }
 
   return (
@@ -268,24 +299,6 @@ export function ItemRegisterModal({ isOpen, onClose }) {
             value={price}
             onChange={(event) => setPrice(event.target.value)}
           />
-          {isMovie && (
-            <>
-              <Input
-                label="Temporada"
-                id="seasonEpisode"
-                placeholder="1"
-                value={seasonNumber}
-                onChange={(event) => setSeasonNumber(event.target.value)}
-              />
-              <Input
-                label="Quantidade de epsódios"
-                id="numberEpsodes"
-                placeholder="10"
-                value={numberOfEpsodes}
-                onChange={(event) => setNumberOfEpsodes(event.target.value)}
-              />
-            </>
-          )}
           <Button title="Confirmar" />
         </form>
       </div>
