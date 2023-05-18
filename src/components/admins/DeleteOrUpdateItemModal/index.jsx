@@ -174,16 +174,6 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, isSerie, onClose }) {
             ],
           },
         ];
-        console.log({
-          title,
-          releaseDate,
-          gender,
-          advisoryRating,
-          imageUrl,
-          seasons,
-          id,
-          price,
-        });
         await api.put("series", {
           title,
           releaseDate,
