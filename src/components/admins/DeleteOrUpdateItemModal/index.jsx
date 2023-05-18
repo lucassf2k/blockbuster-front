@@ -160,23 +160,8 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, isSerie, onClose }) {
         "Content-Type": "multipart/form-data",
       },
     });
-    if (!isMovie) {
-      try {
-        await api.put("/movies", {
-          title,
-          duration: Number(duration),
-          releaseDate,
-          gender: Number(gender),
-          advisoryRating: Number(advisoryRating),
-          imageUrl: responseImageUrl.data,
-          uuid: id,
-          price: Number(price),
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      try {
+    try {
+      if (isSerie) {
         const seasons = [
           {
             seasonNumber: 0,
@@ -189,6 +174,16 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, isSerie, onClose }) {
             ],
           },
         ];
+        console.log({
+          title,
+          releaseDate,
+          gender,
+          advisoryRating,
+          imageUrl,
+          seasons,
+          id,
+          price,
+        });
         await api.put("series", {
           title,
           releaseDate,
@@ -196,11 +191,31 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, isSerie, onClose }) {
           advisoryRating: Number(advisoryRating),
           imageUrl: responseImageUrl.data,
           seasons: seasons,
+          uuid: id,
           price: Number(price),
         });
-      } catch (err) {
-        console.log(err);
+
+        alert("Atualizado com sucesso!");
+        onClose();
+        window.location.reload();
+      } else {
+        await api.put("/movies", {
+          title,
+          duration: Number(duration),
+          releaseDate,
+          gender: Number(gender),
+          advisoryRating: Number(advisoryRating),
+          imageUrl: responseImageUrl.data,
+          uuid: id,
+          price: Number(price),
+        });
+
+        alert("Atualizado com sucesso!");
+        onClose();
+        window.location.reload();
       }
+    } catch (err) {
+      console.log(err);
     }
   }
 

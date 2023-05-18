@@ -65,6 +65,7 @@ export function useAuth() {
 
   function handleLogout() {
     setAuthenticated(false);
+    setIsAdmin(false);
     localStorage.removeItem("@BLOCKBUSTER:token");
     localStorage.removeItem("@BLOCKBUSTER:admin");
     localStorage.removeItem("@BLOCKBUSTER:email");
