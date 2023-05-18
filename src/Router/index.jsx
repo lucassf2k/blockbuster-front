@@ -9,6 +9,7 @@ import { MyList } from "../pages/MyList";
 import { Cart } from "../pages/Cart";
 import { Home } from "../pages/Home";
 import { Minhaconta } from "../pages/Minhaconta";
+import { Player } from "../pages/Player";
 
 import { Dashboard } from "../pages/admins/Dashboard";
 
@@ -89,6 +90,14 @@ export function Router() {
             element={
               <PrivateRoute>
                 <Minhaconta />
+              </PrivateRoute>
+            }
+          />
+          <Route 
+            path="/player"
+            element={
+              <PrivateRoute>
+                <Player />
               </PrivateRoute>
             }
           />

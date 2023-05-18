@@ -10,6 +10,7 @@ import favoriteIcon from "./icons/favorite-icon.svg";
 import homeIcon from "./icons/home-icon.svg";
 import myListIcon from "./icons/mylist-icon.svg";
 import loadingIcon from "./icons/loading.svg";
+import playerBar from "./icons/player-bar.svg";
 
 import houseOfTheDragonImg from "./images/house-of-the-dragon.png";
 import theBatmanImg from "./images/the-batman.jpg";
@@ -33,4 +34,5 @@ export const ASSETS = {
   homeIcon,
   myListIcon,
   loadingIcon,
+  playerBar,
 };

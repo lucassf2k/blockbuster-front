@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 
 import { api } from "../../services/api";
 
+import { Link } from "react-router-dom";
+
 export function MyList() {
   const [movie, setMovie] = useState([]);
   const [serie, setSerie] = useState([]);
@@ -36,32 +38,36 @@ export function MyList() {
         <h2>Minha Lista</h2>
         <div className="collection-items">
           {movie.map((item) => (
-            <Item
-              key={item.title}
-              name={item.title}
-              ageGroup={item.advisoryRating}
-              duration={item.duration}
-              season={item.season}
-              amountEpsodes={item.amountEpsodes}
-              imageURL={item.imageUrl}
-              rating={10}
-              releaseYear={item.releaseDate}
-              isSerie={item.season ? true : false}
-            />
+            <Link to="/player">
+              <Item
+                key={item.title}
+                name={item.title}
+                ageGroup={item.advisoryRating}
+                duration={item.duration}
+                season={item.season}
+                amountEpsodes={item.amountEpsodes}
+                imageURL={item.imageUrl}
+                rating={10}
+                releaseYear={item.releaseDate}
+                isSerie={item.season ? true : false}
+              />
+            </Link>
           ))}
           {serie.map((item) => (
-            <Item
-              key={item.title}
-              name={item.title}
-              ageGroup={item.advisoryRating}
-              duration={item.duration}
-              season={item.season}
-              amountEpsodes={item.amountEpsodes}
-              imageURL={item.imageUrl}
-              rating={10}
-              releaseYear={item.releaseDate}
-              isSerie={item.season ? true : false}
-            />
+            <Link to="/player">
+              <Item
+                key={item.title}
+                name={item.title}
+                ageGroup={item.advisoryRating}
+                duration={item.duration}
+                season={item.season}
+                amountEpsodes={item.amountEpsodes}
+                imageURL={item.imageUrl}
+                rating={10}
+                releaseYear={item.releaseDate}
+                isSerie={item.season ? true : false}
+              />
+            </Link>
           ))}
         </div>
       </section>
