@@ -34,13 +34,9 @@ function PrivateRoute({ children }) {
 function AdminRoute({ children }) {
   const { isLoading, isAdmin, authenticated } = useContext(Context);
 
-  console.log("Router", isAdmin);
-
   if (isLoading) {
     return <Loading />;
   }
-
-  console.log({ isAdmin, authenticated });
 
   if (!isAdmin && authenticated) {
     return <Navigate to="/home" replace />;
@@ -93,7 +89,7 @@ export function Router() {
               </PrivateRoute>
             }
           />
-          <Route 
+          <Route
             path="/player"
             element={
               <PrivateRoute>

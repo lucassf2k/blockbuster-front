@@ -30,8 +30,6 @@ export function Home() {
     const userEmail = localStorage.getItem("@BLOCKBUSTER:email");
     const movieTitle = [item.title];
 
-    console.log(movieTitle);
-
     try {
       if (isSerie) {
         await api.patch("user/my_list/series", {
@@ -86,9 +84,7 @@ export function Home() {
                   rating={10}
                   releaseYear={item.releaseDate}
                   isSerie={false}
-                  onFunction={() =>
-                    insertToList(item, false)
-                  }
+                  onFunction={() => insertToList(item, false)}
                 />
               ))}
               {serie.map((item) => (
@@ -103,9 +99,7 @@ export function Home() {
                   rating={10}
                   releaseYear={item.releaseDate}
                   isSerie={true}
-                  onFunction={() =>
-                    insertToList(item, true)
-                  }
+                  onFunction={() => insertToList(item, true)}
                 />
               ))}
             </div>

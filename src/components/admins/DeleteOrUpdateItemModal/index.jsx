@@ -125,9 +125,10 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, isSerie, onClose }) {
     loadData();
   }, []);
 
-  function handleChoiceBetweenMovieAndSerie(typeItem) {
-    const typeItemIsMovie = typeItem === "serie" ? true : false;
-    setIsMovie(typeItemIsMovie);
+  function handleChoiceBetweenMovieAndSerie() {
+    // const typeItemIsMovie = typeItem === "serie" ? true : false;
+    // setIsMovie(typeItemIsMovie);
+    isSerie ? setIsMovie(true) : setIsMovie(false);
   }
 
   function handleDeleteItem(id) {
@@ -217,23 +218,23 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, isSerie, onClose }) {
         <div className="choice">
           <button
             style={
-              isSerie
+              isMovie
                 ? null
                 : { background: "var(--primary)", color: "var(--gray1)" }
             }
             type="button"
-            onClick={() => handleChoiceBetweenMovieAndSerie("movie")}
+            onClick={handleChoiceBetweenMovieAndSerie}
           >
             Filme
           </button>
           <button
             style={
-              isSerie
+              isMovie
                 ? { background: "var(--primary)", color: "var(--gray1)" }
                 : null
             }
             type="button"
-            onClick={() => handleChoiceBetweenMovieAndSerie("serie")}
+            onClick={handleChoiceBetweenMovieAndSerie}
           >
             Série
           </button>
