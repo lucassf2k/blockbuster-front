@@ -218,7 +218,7 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, isSerie, onClose }) {
         <div className="choice">
           <button
             style={
-              isMovie
+              isMovie || isSerie
                 ? null
                 : { background: "var(--primary)", color: "var(--gray1)" }
             }
@@ -229,7 +229,7 @@ export function DeleteOrUpdateItemModal({ isOpen, itemId, isSerie, onClose }) {
           </button>
           <button
             style={
-              isMovie
+              isMovie || isSerie
                 ? { background: "var(--primary)", color: "var(--gray1)" }
                 : null
             }
