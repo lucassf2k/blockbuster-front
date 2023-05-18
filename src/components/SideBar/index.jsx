@@ -7,8 +7,8 @@ import "./styles.css";
 
 import { Context } from "../../Context/AuthContext";
 
-export function SideBar({ isAdmin = false }) {
-  const { handleLogout } = useContext(Context);
+export function SideBar() {
+  const { isAdmin, handleLogout } = useContext(Context);
 
   return (
     <aside className="nav">
@@ -18,7 +18,11 @@ export function SideBar({ isAdmin = false }) {
       <nav>
         {isAdmin ? (
           <>
-            <Link to="/cart">
+            <Link to="/home">
+              <img src={ASSETS.homeIcon} alt="Ícone com uma casa" />
+              <p>Início</p>
+            </Link>
+            <Link to="/admin/dashboard">
               <img src={ASSETS.myListIcon} alt="Ícone com uma casa" />
               <p>Acervo</p>
             </Link>
